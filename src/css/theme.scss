@@ -1,0 +1,38 @@
+//Theme overrides
+@use './variables.scss';
+
+.main-layout.dark-mode {
+    ::-webkit-scrollbar-track {
+        background: #696969;
+    }
+
+    .chat-container {
+        background: variables.$main-bg-dark;
+    }
+
+    .dialog-bubble {
+        &.user-dialog-bubble {
+            .dialog-content {
+                background: #1e1e1e !important;
+            }
+        }
+    }
+}
+
+.main-layout:not(.dark-mode) {
+    ::-webkit-scrollbar-track {
+        background: #b6b6b6;
+    }
+
+    .chat-container {
+        background: variables.$main-bg;
+    }
+
+    .dialog-bubble {
+        &.user-dialog-bubble {
+            .dialog-content {
+                background: #f2f9ff !important;
+            }
+        }
+    }
+}

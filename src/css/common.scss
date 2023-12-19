@@ -1,0 +1,88 @@
+@use './variables.scss' as variables;
+@use './theme.scss';
+
+body {
+    margin: 0px;
+    overflow: hidden;
+}
+
+.ant-layout-header {
+    .header {
+        background: linear-gradient(103deg,
+                rgba(7, 175, 242, 0.81) 0%,
+                rgb(73 97 255 / 67%) 100%);
+        padding: 0 24px;
+        z-index: 100;
+    }
+}
+
+.ant-btn.ant-btn-text.ant-btn-icon-only.btn-icon {
+    border: none;
+    background-color: rgb(0 0 0 / 0%) !important;
+}
+
+.layout-content {
+    .chat-container {
+        margin: 0px;
+    }
+}
+
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.sticky-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+//#region margins
+.ml-4 {
+    margin-left: 4px;
+}
+
+.mt-4 {
+    margin-top: 4px;
+}
+
+.mb-4 {
+    margin-bottom: 4px;
+}
+
+.mr-4 {
+    margin-right: 4px;
+}
+
+//#endregion margins
+
+//#region padding
+.pad-14 {
+    padding: 14px;
+}
+//#endregion padding
+
+//#region scrollbar
+::-webkit-scrollbar {
+    width: 8px
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #424242;
+    border-radius: 8px;
+    border: 1px solid #232E33;
+}
+
+//#endregion scrollbar
+
+.wmde-markdown.wmde-markdown-color {
+    background: none !important;
+}

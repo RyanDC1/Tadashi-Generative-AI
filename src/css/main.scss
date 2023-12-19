@@ -1,0 +1,75 @@
+@use './common.scss';
+@use './variables.scss';
+
+.header {
+    height: inherit;
+
+    .header-content {
+        height: inherit;
+
+        .header-title-container {
+            align-items: normal;
+        }
+        .header-title {
+            margin: 8px;
+        }
+        .settings-icon {
+            color: white;
+        }
+    }
+}
+
+.chat-interface {
+    overflow-y: auto;
+    padding-bottom: 230px;
+    height: calc(100vh - variables.$header-height);
+    margin-top: variables.$header-height !important;
+
+    .prompt-container {
+        padding: 14px 8px;
+        backdrop-filter: blur(1.5px);
+        .prompt-editor {
+            resize: none;
+            border-radius: 6px 0px 0px 6px;
+        }
+
+        .send-btn {
+            width: 60px;
+            height: inherit;
+            margin-left: none;
+        }
+    }
+
+    .dialog-bubble {
+        display: flex;
+        padding: 4px 14px;
+        .dialog-content {
+            white-space: break-spaces;
+            box-shadow: 1px 0px 8px 0px #8080801f
+        }
+
+        &.ai-dialog-bubble {
+            justify-content: flex-start;
+            .dialog-content {
+                border-radius: 6px 6px 6px 0px;
+            }
+        }
+    
+        &.user-dialog-bubble {
+            justify-content: flex-end;
+            .dialog-content {
+                border-radius: 6px 6px 0px 6px;
+            }
+        }
+
+        .dialog-content-container {
+            max-width: calc(100vw - 400px);
+        }
+
+        .dialog-timestamp {
+            float: right;
+            cursor: default;
+        }
+    }
+
+}
