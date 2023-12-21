@@ -28,6 +28,8 @@
     .prompt-container {
         padding: 14px 8px;
         backdrop-filter: blur(1.5px);
+        margin-right: 8px;
+        padding-right: 6px;
         .prompt-editor {
             resize: none;
             border-radius: 6px 0px 0px 6px;
@@ -36,16 +38,23 @@
         .send-btn {
             width: 60px;
             height: inherit;
-            margin-left: none;
         }
+    }
+
+    .dialog-container {
+        padding-top: 14px;
     }
 
     .dialog-bubble {
         display: flex;
-        padding: 4px 14px;
+        padding: 8px 14px;
         .dialog-content {
             white-space: break-spaces;
-            box-shadow: 1px 0px 8px 0px #8080801f
+            box-shadow: 1px 0px 8px 0px #8080801f;
+
+            .ant-card-body {
+                padding: 14px;
+            }
         }
 
         &.ai-dialog-bubble {

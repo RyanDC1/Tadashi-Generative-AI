@@ -17,3 +17,5 @@ export const ApiRoutes = {
         generateResponse: `${chatApiBaseUrl}${API_V1}/prompt`
     }
 }
+
+export const defaultResponseFallback = "Sorry I didn't quite catch that."

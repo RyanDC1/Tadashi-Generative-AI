@@ -23,7 +23,7 @@ export default function Header() {
                                 TADASHI
                                 <Typography.Text type='secondary'>
                                     <Divider type='vertical' />
-                                    Powered by <Palm2Icon /> <b>PaLM 2</b>
+                                    Powered by Gemini
                                 </Typography.Text>
                             </Space>
                         </Typography.Title>

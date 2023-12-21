@@ -5,7 +5,7 @@ export const darkTheme: ConfigProviderProps['theme'] = {
     algorithm: antTheme.darkAlgorithm,
     components: {
         Input: {
-            colorBgContainer: '#1f1f1f'
+            colorBgContainer: '#191919'
         }
     }
 }

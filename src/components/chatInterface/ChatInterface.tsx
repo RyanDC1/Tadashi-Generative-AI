@@ -1,9 +1,10 @@
 import { useRef, useState } from 'react'
 import PromptEditor, { PromptEditorRef } from './PromptEditor'
 import { ChatService } from '../../services/ChatService'
-import { ChatActorType, DialogType } from '../../models'
+import { ChatActorType, ChatRequest, DialogType } from '../../models'
 import { notification } from 'antd'
 import DialogFlow from './dialog/DialogFlow'
+import { defaultResponseFallback } from '../../utils'
 
 type Props = {}
 
@@ -49,15 +50,26 @@ export default function ChatInterface({ }: Props) {
       ]
     ))
 
-    ChatService.getPromptResponse({ prompt })
+    const history: ChatRequest['history'] = dialog.map(s => (
+      {
+        parts: [{
+          text: s.content
+        }],
+        role: s.author
+      }
+    ))
+
+    ChatService.getPromptResponse({ prompt, history })
       .then((response) => {
+
+        const generatedResponse = response.candidates?.[0]?.content.parts?.[0].text ?? defaultResponseFallback
         setDialog((dialog) => (
           [
             ...dialog,
             {
               id: dialog.length + 1,
               author: ChatActorType.AI,
-              content: response.candidates?.[0]?.content ?? "Sorry I didn't quite catch that",
+              content: typeof(generatedResponse) === 'string' ? generatedResponse : defaultResponseFallback,
               date: new Date()
             }
           ]

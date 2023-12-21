@@ -1,10 +1,11 @@
 {
-  "name": "palm2_chatbot",
+  "name": "gen_ai",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "start-dev": "pnpm dev && cd server && pnpm dev",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
