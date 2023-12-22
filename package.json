@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "build-win": "pnpm i && pnpm build && @powershell Copy-Item dist -Recurse ./build && @powershell Copy-Item ./server -Recurse -Exclude @(node_modules) ./build ",
+    "build-win": "pnpm i && pnpm build && @powershell Copy-Item dist -Recurse ./server",
     "build-ui": "pnpm i && pnpm build && cp -r dist ./server",
     "build-server": "cd server && pnpm i",
     "build-prod": "pnpm build-ui && pnpm build-server",
