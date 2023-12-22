@@ -76,7 +76,7 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
     const { configReducer: config } = store.getState()
 
     setIsFetching(true)
-    ChatService.getPromptResponse({ prompt, history, temperature: config.chatMode, CLIENT_SECRET: import.meta.env.VITE_PRIVATE_KEY })
+    ChatService.getPromptResponse({ prompt, history, temperature: config.chatMode })
       .then((response) => {
 
         const generatedResponse = response?.candidates?.[0]?.content?.parts?.[0]?.text ?? defaultResponseFallback

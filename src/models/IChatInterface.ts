@@ -40,8 +40,7 @@ type ChatCandidate = {
 export type ChatRequest = {
     prompt: string,
     temperature?: number,
-    history?: ChatContent[],
-    CLIENT_SECRET: string
+    history?: ChatContent[]
 }
 
 export type ChatResponse = {
