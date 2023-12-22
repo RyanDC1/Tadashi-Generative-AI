@@ -20,7 +20,7 @@ app.use(API_V1, ChatController)
 app.use(unknownEndpoint)
 app.use(errorhandler)
 
-app.set('trust proxy', true);
+// app.set('trust proxy', true);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
