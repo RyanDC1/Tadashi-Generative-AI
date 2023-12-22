@@ -9,6 +9,7 @@ const { unknownEndpoint, errorhandler, middleware } = require('./utils/Middlewar
 const API_V1 = '/api/v1'
 
 const app = express()
+app.set('trust proxy', true);
 
 app.use(express.static('dist'))
 app.use(cors())
@@ -20,7 +21,6 @@ app.use(API_V1, ChatController)
 app.use(unknownEndpoint)
 app.use(errorhandler)
 
-// app.set('trust proxy', true);
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
