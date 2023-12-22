@@ -10,8 +10,8 @@ const API_V1 = '/api/v1'
 const app = express()
 
 app.use(express.static('dist'))
-app.use(express.json())
 app.use(cors())
+app.use(express.json())
 
 app.use(API_V1, ChatController)
 
