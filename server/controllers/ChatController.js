@@ -3,7 +3,7 @@ const { GENERATIVE_LANGUAGE_CHAT_URL, PRE_PROMPT_CONTEXT } = require('../constan
 
 chatController.post('/prompt', async (req, res) => {
 
-    console.log(req.ip, req.ips, req.cookies, req.headers['x-forwarded-for'], req.headers['x-client-ip'])
+    console.log(req.ip, req.ips, res.socket.remoteAddress, req.headers['x-forwarded-for'], req.headers['x-real-ip'])
     const { prompt, temperature = 0.5, history = [] } = req.body
 
     const payload = {
