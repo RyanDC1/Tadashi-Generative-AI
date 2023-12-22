@@ -53,3 +53,9 @@ export type DialogType = {
     author: ChatActorType,
     date: Date
 }
+
+export enum ChatModes {
+    Creative = 0.0,
+    Balanced = 0.5,
+    Precise = 1.0
+}

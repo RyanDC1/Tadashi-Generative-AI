@@ -1,1 +1,1 @@
-export { default as ThemeContext, useTheme } from './ThemeContext'
+export { default as ChatContext, useChatContext } from './ChatContext'

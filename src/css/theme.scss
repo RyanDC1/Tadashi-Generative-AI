@@ -17,6 +17,23 @@
             }
         }
     }
+
+    .chat-modes {
+        .chat-mode {
+            &:hover:not(.selected) {
+                border-color: #fff !important;
+                box-shadow: 0 1px 2px -2px rgb(255 255 255 / 16%), 
+                0 3px 6px 0 rgb(255 255 255 / 8%), 
+                0 5px 12px 4px rgb(147 147 147 / 9%)
+            }
+            &.selected {
+                border-color: #fff;
+                box-shadow: 0 1px 2px -2px rgb(255 255 255 / 16%), 
+                0 3px 6px 0 rgb(255 255 255 / 8%), 
+                0 5px 12px 4px rgb(147 147 147 / 9%)
+            }
+        }
+    }
 }
 
 .main-layout:not(.dark-mode) {
@@ -32,6 +49,23 @@
         &.user-dialog-bubble {
             .dialog-content {
                 background: #f2f9ff !important;
+            }
+        }
+    }
+
+    .chat-modes {
+        .chat-mode {
+            &:hover:not(.selected) {
+                border-color: #fff;
+                box-shadow: 0 1px 2px -2px #fff, 
+                0 3px 6px 0 rgb(107 107 107 / 57%), 
+                0 5px 12px 4px rgb(183 183 183 / 22%)
+            }
+            &.selected {
+                border-color: #fff;
+                box-shadow: 0 1px 2px -2px #fff, 
+                0 3px 6px 0 rgb(107 107 107 / 57%), 
+                0 5px 12px 4px rgb(183 183 183 / 22%)
             }
         }
     }

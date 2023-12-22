@@ -1,17 +1,27 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, SliceCaseReducers, SliceSelectors, createSlice } from "@reduxjs/toolkit";
+import { BrowserStoreKeys } from "../../utils";
 
 export enum Theme {
     DARK = 'Dark',
     LIGHT = 'Light'
 }
 
-const ThemeSlice = createSlice({
+let initialState = window.matchMedia("(prefers-color-scheme: dark)").matches ? Theme.DARK : Theme.LIGHT
+if (localStorage.getItem(BrowserStoreKeys.THEME)) {
+    try {
+        initialState = JSON.parse(localStorage.getItem(BrowserStoreKeys.THEME)) as Theme
+    } catch (error) {
+        console.error(error)
+    }
+}
+
+const ThemeSlice = createSlice<Theme, SliceCaseReducers<Theme>, string, SliceSelectors<Theme>, string>({
     name: 'THEME_REDUCER',
-    initialState: Theme.DARK,
+    initialState: initialState,
     reducers: {
-        setThemeAction: (state, action) => action.payload,
-        setDarkModeAction: () => Theme.DARK,
-        setLightModeAction: () => Theme.LIGHT,
+        setThemeAction: (_state, action: PayloadAction<Theme>) => action.payload,
+        setDarkModeAction: (_state) => Theme.DARK,
+        setLightModeAction: (_state) => Theme.LIGHT,
         /**
          * @description determines the theme from system and applies it to the application
          */

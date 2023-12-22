@@ -87,3 +87,12 @@ body {
 .wmde-markdown.wmde-markdown-color {
     background: none !important;
 }
+
+.ant-drawer .ant-drawer-header-title {
+    flex-direction: row-reverse;
+    padding-right: 0px;
+}
+
+.align-base {
+    align-items: baseline;
+}

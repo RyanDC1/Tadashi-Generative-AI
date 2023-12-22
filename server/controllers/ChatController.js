@@ -1,5 +1,5 @@
 const chatController = require('express').Router()
-const { GENERATIVE_LANGUAGE_CHAT_URL } = require('../constants')
+const { GENERATIVE_LANGUAGE_CHAT_URL, PRE_PROMPT_CONTEXT } = require('../constants')
 
 chatController.post('/prompt', async (req, res) => {
 
@@ -7,6 +7,7 @@ chatController.post('/prompt', async (req, res) => {
 
     const payload = {
         contents: [
+            ...PRE_PROMPT_CONTEXT,
             ...history,
             {
                 role: 'user',

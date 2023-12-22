@@ -1,19 +1,34 @@
-import { useRef, useState } from 'react'
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import PromptEditor, { PromptEditorRef } from './PromptEditor'
 import { ChatService } from '../../services/ChatService'
 import { ChatActorType, ChatRequest, DialogType } from '../../models'
 import { notification } from 'antd'
 import DialogFlow from './dialog/DialogFlow'
-import { defaultResponseFallback } from '../../utils'
+import { defaultAPIFailedDialog, defaultResponseFallback } from '../../utils'
+import { useStore } from 'react-redux'
+import { StoreReducerType } from '../../store'
 
 type Props = {}
 
-export default function ChatInterface({ }: Props) {
+export type ChatInterfaceRef = {
+  prompt: (value: string) => void,
+  clearHistory: () => Promise<void>
+}
+
+const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
+
+  const store = useStore<StoreReducerType>()
 
   const [dialog, setDialog] = useState<DialogType[]>([])
-  const [isFething, setIsFetching] = useState(false)
-
+  const [isFetching, setIsFetching] = useState(false)
   const promptEditorRef = useRef<PromptEditorRef>()
+
+  useImperativeHandle(ref, () => (
+    {
+      clearHistory: () => !isFetching ? Promise.resolve(setDialog([])) : Promise.reject(),
+      prompt: (value) => promptAssistant(value)
+    }
+  ), [isFetching])
 
   return (
     <div className='chat-interface'>
@@ -23,21 +38,20 @@ export default function ChatInterface({ }: Props) {
       <div className='dialog-container'>
         <DialogFlow
           dialog={dialog}
-          loading={isFething}
+          loading={isFetching}
         />
       </div>
       <div className='prompt-container sticky-footer'>
         <PromptEditor
           ref={promptEditorRef}
           onSend={promptAssistant}
-          disabled={isFething}
+          disabled={isFetching}
         />
       </div>
     </div>
   )
 
   function promptAssistant(prompt: string) {
-    setIsFetching(true)
     setDialog((dialog) => (
       [
         ...dialog,
@@ -59,26 +73,40 @@ export default function ChatInterface({ }: Props) {
       }
     ))
 
-    ChatService.getPromptResponse({ prompt, history })
+    const { configReducer: config } = store.getState()
+
+    setIsFetching(true)
+    ChatService.getPromptResponse({ prompt, history, temperature: config.chatMode })
       .then((response) => {
 
-        const generatedResponse = response.candidates?.[0]?.content.parts?.[0].text ?? defaultResponseFallback
+        const generatedResponse = response?.candidates?.[0]?.content?.parts?.[0]?.text ?? defaultResponseFallback
         setDialog((dialog) => (
           [
             ...dialog,
             {
               id: dialog.length + 1,
               author: ChatActorType.AI,
-              content: typeof(generatedResponse) === 'string' ? generatedResponse : defaultResponseFallback,
+              content: typeof (generatedResponse) === 'string' ? generatedResponse : defaultResponseFallback,
               date: new Date()
             }
           ]
         ))
       })
       .catch(() => {
+        setDialog((dialog) => (
+          [
+            ...dialog,
+            {
+              id: dialog.length + 1,
+              author: ChatActorType.AI,
+              content: defaultAPIFailedDialog,
+              date: new Date()
+            }
+          ]
+        ))
         notification.error({
           message: 'API Failed',
-          description: 'An error occurred while fetching response, token exhausted'
+          description: 'An error occurred while fetching response, network error / Token exhausted / Invalid API key'
         })
       })
       .finally(() => {
@@ -90,4 +118,6 @@ export default function ChatInterface({ }: Props) {
         }, 20);
       })
   }
-}
+})
+
+export default ChatInterface

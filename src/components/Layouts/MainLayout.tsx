@@ -1,7 +1,8 @@
 import React from 'react'
 import { ConfigProvider, Layout } from 'antd'
-import { Theme, useTheme } from '../../contexts/ThemeContext'
 import { darkTheme, lightTheme } from '../themes/theme'
+import { useTheme } from '../../utils'
+import { Theme } from '../../store'
 
 const { Content, Header } = Layout
 
@@ -15,7 +16,6 @@ export default function MainLayout(props: Props) {
     const { header, children } = props
 
     const { theme } = useTheme()
-    console.log(theme)
 
     return (
         <ConfigProvider
@@ -26,7 +26,7 @@ export default function MainLayout(props: Props) {
                     lightTheme
             }
         >
-            <Layout className={'main-layout'.concat(theme === Theme.DARK ? ' dark-mode' : '')}>
+            <Layout id='main-layout' className={'main-layout'.concat(theme === Theme.DARK ? ' dark-mode' : '')}>
                 <Header className='layout-header'>
                     {header}
                 </Header>

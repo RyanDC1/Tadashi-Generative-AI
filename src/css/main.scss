@@ -10,9 +10,11 @@
         .header-title-container {
             align-items: normal;
         }
+
         .header-title {
             margin: 8px;
         }
+
         .settings-icon {
             color: white;
         }
@@ -30,6 +32,7 @@
         backdrop-filter: blur(1.5px);
         margin-right: 8px;
         padding-right: 6px;
+
         .prompt-editor {
             resize: none;
             border-radius: 6px 0px 0px 6px;
@@ -48,8 +51,8 @@
     .dialog-bubble {
         display: flex;
         padding: 8px 14px;
+
         .dialog-content {
-            white-space: break-spaces;
             box-shadow: 1px 0px 8px 0px #8080801f;
 
             .ant-card-body {
@@ -59,14 +62,17 @@
 
         &.ai-dialog-bubble {
             justify-content: flex-start;
+
             .dialog-content {
                 border-radius: 6px 6px 6px 0px;
             }
         }
-    
+
         &.user-dialog-bubble {
             justify-content: flex-end;
+
             .dialog-content {
+                white-space: break-spaces;
                 border-radius: 6px 6px 0px 6px;
             }
         }
@@ -81,4 +87,41 @@
         }
     }
 
+}
+
+.chat-settings {
+    .chat-modes {
+        .ant-typography {
+            color: #fff !important;
+        }
+
+        .chat-mode {
+            text-align: center;
+            min-width: 108px;
+
+            &.selected {
+                .ant-typography {
+                    filter: drop-shadow(2px 4px 7px black);
+                }
+            }
+        }
+
+        .chat-mode-creative {
+            background: linear-gradient(90deg,
+                    rgba(101, 16, 53, 0.8) 40%,
+                    rgba(0, 169, 255, 0.8) 100%);
+        }
+
+        .chat-mode-balanced {
+            background: linear-gradient(90deg, rgba(0, 169, 255, 0.8) 0%,
+                    rgba(10, 194, 76, 0.8) 50%,
+                    rgba(180, 37, 234, 0.8) 100%)
+        }
+
+        .chat-mode-precise {
+            background: linear-gradient(90deg,
+                    rgba(180, 37, 234, 0.8) 0%,
+                    rgba(101, 16, 53, 0.8) 100%);
+        }
+    }
 }

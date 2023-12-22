@@ -1,4 +1,3 @@
-import React from 'react'
 import { Options, TypewriterClass } from 'typewriter-effect';
 import Typewriter from 'typewriter-effect/dist/core';
 
@@ -19,7 +18,7 @@ export function generateDyanmicPlaceholder(props: GenerateDyanmicPlaceholderProp
 
     return new Typewriter(null, {
         loop: true,
-        delay: 50,
+        delay: 80,
         deleteSpeed: 50,
         strings: options,
         autoStart: true,
