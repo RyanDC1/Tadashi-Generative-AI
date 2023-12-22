@@ -3,7 +3,12 @@ const { GENERATIVE_LANGUAGE_CHAT_URL, PRE_PROMPT_CONTEXT } = require('../constan
 
 chatController.post('/prompt', async (req, res) => {
 
-    const { prompt, temperature = 0.5, history = [] } = req.body
+    const { CLIENT_SECRET, prompt, temperature = 0.5, history = [] } = req.body
+
+    if((process.env.VITE_PRIVATE_KEY !== CLIENT_SECRET) || !(process.env.ALLOWED_HOSTS.includes(req.headers.host)))
+    {
+        return res.status(401).json({ error: 'Unauthorized' }).end()
+    }
 
     const payload = {
         contents: [
@@ -34,6 +39,5 @@ chatController.post('/prompt', async (req, res) => {
     const data = await response.json()
     res.send(data)
 })
-
 
 module.exports = chatController

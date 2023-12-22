@@ -123,5 +123,17 @@
                     rgba(180, 37, 234, 0.8) 0%,
                     rgba(101, 16, 53, 0.8) 100%);
         }
+
+        .chat-mode-checked-icon {
+            display: inline;
+            color: #49aa19;
+            background-color: #fff !important;
+            border-radius: 8px !important;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
     }
 }

@@ -1,7 +1,24 @@
-import { Card, Col, Row, Space, Typography, notification } from "antd"
+import { Badge, Card, Col, Row, Space, Typography, notification } from "antd"
 import TooltipHelper from "../../tooltipHelper/TooltipHelper"
 import { ChatModes as ChatModeType } from "../../../models"
 import { useConfig } from "../../../utils"
+import { CheckCircleFilled } from "@ant-design/icons"
+
+type BadgeProps = {
+    children: React.ReactNode,
+    hidden?: boolean
+}
+
+const ChatModeBadge = ({ children, hidden }: BadgeProps) => {
+    return (
+        !hidden ?
+        <Badge className="chat-mode-checked-icon" count={<CheckCircleFilled style={{ background: '#fff', borderRadius: 8 }} />} offset={[-15, 15]}>
+            {children}
+        </Badge>
+        :
+        children
+    )
+}
 
 export default function ChatModes() {
 
@@ -32,37 +49,43 @@ export default function ChatModes() {
             <div className="chat-modes">
                 <Row gutter={[16, 16]}>
                     <Col lg={8} sm={24}>
-                        <Card
-                            hoverable
-                            className={"chat-mode chat-mode-creative".concat(chatMode === ChatModeType.Creative ? ' selected' : '')}
-                            onClick={() => updateMode(ChatModeType.Creative)}
-                        >
-                            <Typography.Text strong>
-                                Creative
-                            </Typography.Text>
-                        </Card>
+                        <ChatModeBadge hidden={chatMode !== ChatModeType.Creative}>
+                            <Card
+                                hoverable
+                                className={"chat-mode chat-mode-creative".concat(chatMode === ChatModeType.Creative ? ' selected' : '')}
+                                onClick={() => updateMode(ChatModeType.Creative)}
+                            >
+                                <Typography.Text strong>
+                                    Creative
+                                </Typography.Text>
+                            </Card>
+                        </ChatModeBadge>
                     </Col>
                     <Col lg={8} sm={24}>
-                        <Card
-                            hoverable
-                            className={"chat-mode chat-mode-balanced".concat(chatMode === ChatModeType.Balanced ? ' selected' : '')}
-                            onClick={() => updateMode(ChatModeType.Balanced)}
-                        >
-                            <Typography.Text strong>
-                                Balanced
-                            </Typography.Text>
-                        </Card>
+                        <ChatModeBadge hidden={chatMode !== ChatModeType.Balanced}>
+                            <Card
+                                hoverable
+                                className={"chat-mode chat-mode-balanced".concat(chatMode === ChatModeType.Balanced ? ' selected' : '')}
+                                onClick={() => updateMode(ChatModeType.Balanced)}
+                            >
+                                <Typography.Text strong>
+                                    Balanced
+                                </Typography.Text>
+                            </Card>
+                        </ChatModeBadge>
                     </Col>
                     <Col lg={8} sm={24}>
-                        <Card
-                            hoverable
-                            className={"chat-mode chat-mode-precise".concat(chatMode === ChatModeType.Precise ? ' selected' : '')}
-                            onClick={() => updateMode(ChatModeType.Precise)}
-                        >
-                            <Typography.Text strong>
-                                Precise
-                            </Typography.Text>
-                        </Card>
+                        <ChatModeBadge hidden={chatMode !== ChatModeType.Precise}>
+                            <Card
+                                hoverable
+                                className={"chat-mode chat-mode-precise".concat(chatMode === ChatModeType.Precise ? ' selected' : '')}
+                                onClick={() => updateMode(ChatModeType.Precise)}
+                            >
+                                <Typography.Text strong>
+                                    Precise
+                                </Typography.Text>
+                            </Card>
+                        </ChatModeBadge>
                     </Col>
                 </Row>
             </div>
