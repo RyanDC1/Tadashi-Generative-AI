@@ -24,9 +24,9 @@ export default function Header() {
                                 src={<img src='/images/logo.png' />}
                             />
                             <Typography.Title className='header-title'>
-                                <Space size={8}>
+                                <Space size={2} className='title'>
                                     TADASHI
-                                    <Typography.Text type='secondary'>
+                                    <Typography.Text type='secondary' className='title-description'>
                                         <Divider type='vertical' />
                                         Powered by Gemini
                                     </Typography.Text>

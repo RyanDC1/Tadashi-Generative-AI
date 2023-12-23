@@ -48,7 +48,7 @@ export default function ChatModes() {
             </span>
             <div className="chat-modes">
                 <Row gutter={[16, 16]}>
-                    <Col lg={8} sm={24}>
+                    <Col lg={8} sm={24} xs={24}>
                         <ChatModeBadge hidden={chatMode !== ChatModeType.Creative}>
                             <Card
                                 hoverable
@@ -61,7 +61,7 @@ export default function ChatModes() {
                             </Card>
                         </ChatModeBadge>
                     </Col>
-                    <Col lg={8} sm={24}>
+                    <Col lg={8} sm={24} xs={24}>
                         <ChatModeBadge hidden={chatMode !== ChatModeType.Balanced}>
                             <Card
                                 hoverable
@@ -74,7 +74,7 @@ export default function ChatModes() {
                             </Card>
                         </ChatModeBadge>
                     </Col>
-                    <Col lg={8} sm={24}>
+                    <Col lg={8} sm={24} xs={24}>
                         <ChatModeBadge hidden={chatMode !== ChatModeType.Precise}>
                             <Card
                                 hoverable

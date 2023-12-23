@@ -8,13 +8,18 @@
         height: inherit;
 
         .header-title-container {
-            align-items: normal;
+            align-items: center;
         }
 
         .header-title {
             margin: 8px;
         }
 
+        .title-description {
+            position: relative;
+            bottom: 2px;
+        }
+        
         .settings-icon {
             color: white;
         }
@@ -79,7 +84,7 @@
         }
 
         .dialog-content-container {
-            max-width: calc(100vw - 400px);
+            max-width: calc(100vw - 35%);
         }
 
         .dialog-timestamp {

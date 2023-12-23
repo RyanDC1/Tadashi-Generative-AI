@@ -21,6 +21,13 @@ body {
     background-color: rgb(0 0 0 / 0%) !important;
 }
 
+.layout-header {
+    top: 0px;
+    width: 100vw;
+    position: absolute;
+    height: variables.$header-height;
+}
+
 .layout-content {
     .chat-container {
         margin: 0px;
@@ -64,6 +71,7 @@ body {
 .pad-14 {
     padding: 14px;
 }
+
 //#endregion padding
 
 //#region scrollbar
@@ -95,4 +103,25 @@ body {
 
 .align-base {
     align-items: baseline;
+}
+
+@media (min-width: 300px) and (max-width: 540px) {
+    .header-title {
+        align-items: center;
+        display: flex;
+
+        .title {
+            font-size: 16px;
+        }
+
+        .title-description {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 300px) {
+    .header-title {
+        display: none;
+    }
 }
