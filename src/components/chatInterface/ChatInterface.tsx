@@ -29,7 +29,7 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
       prompt: (value) => promptAssistant(value)
     }
   ), [isFetching])
-
+  
   return (
     <div className='chat-interface'>
       <div className='intro'>

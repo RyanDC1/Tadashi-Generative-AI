@@ -1,5 +1,6 @@
 import { Options, TypewriterClass } from 'typewriter-effect';
 import Typewriter from 'typewriter-effect/dist/core';
+import { Crypt } from 'hybrid-crypto-js'
 
 type GenerateDyanmicPlaceholderProps = {
     id: string,
@@ -49,4 +50,12 @@ export function scrollIntoView(props: ScrollIntoViewProps) {
     }
 
     element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center', ...options })
+}
+
+export function encryptJSON (params: Object) {
+    var crypt = new Crypt({
+        rsaStandard: 'RSA-OAEP',
+        entropy: import.meta.env.VITE_RSA_ENTROPHY
+    });
+    return crypt.encrypt(import.meta.env.VITE_CLIENT_SECRET, JSON.stringify(params));
 }

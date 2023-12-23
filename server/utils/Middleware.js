@@ -1,8 +1,18 @@
+const { Crypt } = require('hybrid-crypto-js')
+
 const middleware = (request, response, next) => {
     if(!(process.env.ALLOWED_ORIGINS.includes(request.headers.origin)))
     {
         return response.status(401).json({ error: 'Unauthorized' }).end()
     }
+
+    const entropy = process.env.VITE_RSA_ENTROPHY;
+    const crypt = new Crypt({
+        rsaStandard: 'RSA-OAEP',
+        entropy: entropy
+    });
+    const decrypted = crypt.decrypt(process.env.SERVER_SECRET, JSON.stringify(request.body))
+    request.body = JSON.parse(decrypted.message)
 
     next()
 }

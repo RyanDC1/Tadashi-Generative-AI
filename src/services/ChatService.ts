@@ -1,12 +1,12 @@
 import axios from "axios";
 import { IChatService } from "./IChatService";
-import { ApiRoutes } from "../utils";
+import { ApiRoutes, encryptJSON } from "../utils";
 
 export const ChatService: IChatService = {
     getPromptResponse: async (body) => {
         const response = await axios.post(
             ApiRoutes.chat.generateResponse,
-            body,
+            encryptJSON(body),
             {
                 headers: {
                     "Content-Type": 'application/json'
