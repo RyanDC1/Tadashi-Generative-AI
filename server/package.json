@@ -14,7 +14,8 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "hybrid-crypto-js": "^0.2.4"
+    "hybrid-crypto-js": "^0.2.4",
+    "node-forge": "^1.3.1"
   },
   "devDependencies": {
     "@types/express": "^4.17.21",
