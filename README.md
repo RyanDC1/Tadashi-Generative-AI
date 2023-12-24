@@ -1,36 +1,6 @@
-<style>
-.header {
-    color: white;
-    background: linear-gradient(103deg,
-        rgba(7, 175, 242, 0.81) 0%,
-        rgb(73 97 255 / 67%) 100%);
-}
-.center {
-    text-align: center;
-    align-items: center;
-}
-.logo {
-    margin-right: 4px;
-    border-radius: 4px;
-    align-items: center;
-    position: relative;
-    top: 8px;
-}
-.screenshots {
-    display: flex;
-    flex-flow: wrap;
-    gap: 24px;
-}
-.screenshots > .screenshot-item {
-  flex: 1 1 25vw;
-}
-.description {
-    color: gray;
-}
-</style>
-
-<h1 class='center header'>
-    <img class='logo' src='./public/images/logo.png' width=30> TADASHI - Generative AI
+<h1 style='text-align: center; align-items: center; color: white; background: linear-gradient(103deg, rgba(7, 175, 242, 0.81) 0%, rgb(73 97 255 / 67%) 100%);'>
+    <img style="margin-right: 4px; border-radius: 4px; align-items: center; position: relative; top: 8px;" src='./public/images/logo.png' width=30> 
+    TADASHI - Generative AI
 </h1>
 
 TADASHI is a generative AI chat application that uses Google's Deepmind Gemini API to generate responses. Tadashi can respond to user prompts, solve logical problems with reasoning, perform basic tasks and has a knowledge base of multiple languages that can be used for translation.<br/>
@@ -41,34 +11,34 @@ It also has the capability to summarize content either in general or summarize t
 (Please note: The site will take some time to load initially)
 
 ## Preview
-<div class='screenshots'>
-    <div class='screenshot-item'>
+<div class='screenshots' style="display: flex; flex-flow: wrap; gap: 24px;">
+    <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_1.png'>
-        <p class='description center'>
+        <p style="text-align: center; align-items: center; color: gray;">
             Ability to summarize text and generate code
         </p>
     </div>
-    <div class='screenshot-item'>
+    <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_2.png'>
-        <p class='description center'>
+        <p style="text-align: center; align-items: center; color: gray;">
             Translation and understanding of foreign languages and text
         </p>
     </div>
-    <div class='screenshot-item'>
+    <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_3.png'>
-        <p class='description center'>
+        <p style="text-align: center; align-items: center; color: gray;">
             Content Generation
         </p>
     </div>
-    <div class='screenshot-item'>
+    <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_3.png'>
-        <p class='description center'>
+        <p style="text-align: center; align-items: center; color: gray;">
             Semantic extraction and task Execution
         </p>
     </div>
-    <div class='screenshot-item'>
+    <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_settings.png'>
-        <p class='description center'>
+        <p style="text-align: center; align-items: center; color: gray;">
             Chat modes, each mode will shift the probability of finding the right candidate response
         </p>
     </div>
