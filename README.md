@@ -1,4 +1,4 @@
-<h1 style='text-align: center; align-items: center; color: white; background: linear-gradient(103deg, rgba(7, 175, 242, 0.81) 0%, rgb(73 97 255 / 67%) 100%);'>
+<h1 align="center" style='text-align: center; align-items: center; color: white; background: linear-gradient(103deg, rgba(7, 175, 242, 0.81) 0%, rgb(73 97 255 / 67%) 100%);'>
     <img style="margin-right: 4px; border-radius: 4px; align-items: center; position: relative; top: 8px;" src='./public/images/logo.png' width=30> 
     TADASHI - Generative AI
 </h1>
@@ -14,34 +14,39 @@ It also has the capability to summarize content either in general or summarize t
 <div class='screenshots' style="display: flex; flex-flow: wrap; gap: 24px;">
     <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_1.png'>
-        <p style="text-align: center; align-items: center; color: gray;">
+        <p align="center" style="text-align: center; align-items: center; color: gray;">
             Ability to summarize text and generate code
         </p>
     </div>
+    <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_2.png'>
-        <p style="text-align: center; align-items: center; color: gray;">
+        <p align="center" style="text-align: center; align-items: center; color: gray;">
             Translation and understanding of foreign languages and text
         </p>
     </div>
+    <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_3.png'>
-        <p style="text-align: center; align-items: center; color: gray;">
+        <p align="center" style="text-align: center; align-items: center; color: gray;">
             Content Generation
         </p>
     </div>
+    <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_3.png'>
-        <p style="text-align: center; align-items: center; color: gray;">
+        <p align="center" style="text-align: center; align-items: center; color: gray;">
             Semantic extraction and task Execution
         </p>
     </div>
+    <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
         <img src='./assets/screenshot_settings.png'>
-        <p style="text-align: center; align-items: center; color: gray;">
+        <p align="center" style="text-align: center; align-items: center; color: gray;">
             Chat modes, each mode will shift the probability of finding the right candidate response
         </p>
     </div>
+    <br/><br/><br/>
 </div>
 
 # AIM
