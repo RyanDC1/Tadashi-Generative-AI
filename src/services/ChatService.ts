@@ -6,7 +6,7 @@ export const ChatService: IChatService = {
     getPromptResponse: async (body) => {
         const response = await axios.post(
             ApiRoutes.chat.generateResponse,
-            encryptJSON(body),
+            import.meta.env.DEV ? body : encryptJSON(body),
             {
                 headers: {
                     "Content-Type": 'application/json'

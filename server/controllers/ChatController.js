@@ -4,10 +4,23 @@ const { GENERATIVE_LANGUAGE_CHAT_URL, PRE_PROMPT_CONTEXT } = require('../constan
 chatController.post('/prompt', async (req, res) => {
 
     const { prompt, temperature = 0.5, history = [] } = req.body
-    
+
+    if(history.length > 30)
+    {
+        let insertIndex = history.length - 30
+        if(insertIndex % 2 === 1)
+        {
+            // ensure proper flow of actors is followed
+            // user prompt should be followed by response
+            insertIndex -= insertIndex
+        }
+        history.splice(insertIndex, 0, ...(PRE_PROMPT_CONTEXT ?? []))
+    }
+    else {
+        history.splice(0, 0, ...(PRE_PROMPT_CONTEXT ?? []))
+    }
     const payload = {
         contents: [
-            ...PRE_PROMPT_CONTEXT,
             ...history,
             {
                 role: 'user',

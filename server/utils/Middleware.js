@@ -6,14 +6,16 @@ const middleware = (request, response, next) => {
         return response.status(401).json({ error: 'Unauthorized' }).end()
     }
 
-    const entropy = process.env.VITE_RSA_ENTROPHY;
-    const crypt = new Crypt({
-        rsaStandard: 'RSA-OAEP',
-        entropy: entropy
-    });
-    const decrypted = crypt.decrypt(process.env.SERVER_SECRET, JSON.stringify(request.body))
-    request.body = JSON.parse(decrypted.message)
-
+    if(JSON.parse(process.env.PRODUCTION_MODE ?? 'true') === true)
+    {
+        const entropy = process.env.VITE_RSA_ENTROPHY;
+        const crypt = new Crypt({
+            rsaStandard: 'RSA-OAEP',
+            entropy: entropy
+        });
+        const decrypted = crypt.decrypt(process.env.SERVER_SECRET, JSON.stringify(request.body))
+        request.body = JSON.parse(decrypted.message)
+    }
     next()
 }
 
