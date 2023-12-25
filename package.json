@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm build-ui && npm build-server",
+    "build": "npm run build-ui && npm run build-server",
     "start": "cd server && npm start",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "build-win": "npm i && npm build && @powershell Copy-Item dist -Recurse ./server",
+    "build-win": "npm i && npm run build && @powershell Copy-Item dist -Recurse ./server",
     "build-ui": "npm i && vite build && cp -r dist ./server",
     "build-server": "cd server && npm i",
-    "build-local": "npm build-win && npm build-server",
+    "build-local": "npm run build-win && npm run build-server",
     "start-server": "cd server && npm start"
   },
   "dependencies": {
