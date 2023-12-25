@@ -5,15 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "pnpm build-ui && pnpm build-server",
-    "start": "cd server && pnpm start",
+    "build": "npm build-ui && npm build-server",
+    "start": "cd server && npm start",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "build-win": "pnpm i && pnpm build && @powershell Copy-Item dist -Recurse ./server",
-    "build-ui": "pnpm i && vite build && cp -r dist ./server",
-    "build-server": "cd server && pnpm i",
-    "build-local": "pnpm build-win && pnpm build-server",
-    "start-server": "cd server && pnpm start"
+    "build-win": "npm i && npm build && @powershell Copy-Item dist -Recurse ./server",
+    "build-ui": "npm i && vite build && cp -r dist ./server",
+    "build-server": "cd server && npm i",
+    "build-local": "npm build-win && npm build-server",
+    "start-server": "cd server && npm start"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
