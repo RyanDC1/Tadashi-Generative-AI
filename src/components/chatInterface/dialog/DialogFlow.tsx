@@ -18,18 +18,18 @@ export default function DialogFlow(props: Props) {
 
     const dialogAnimationDelay = dialog.length == 1 ? 120 : 0
 
-    useEffect(() => {
-        if (dialog.length > 0) {
-            // reset scroll on every new dialog
-            scrollIntoView({
-                id: loading ? 'response-loading-indicator' : String(last(dialog).id),
-                options: {
-                    block: 'start'
-                },
-                delay: 450
-            })
-        }
-    }, [dialog, loading])
+    // useEffect(() => {
+    //     if (dialog.length > 0) {
+    //         // reset scroll on every new dialog
+    //         scrollIntoView({
+    //             id: loading ? 'response-loading-indicator' : String(last(dialog).id),
+    //             options: {
+    //                 block: 'start'
+    //             },
+    //             delay: 450
+    //         })
+    //     }
+    // }, [dialog, loading])
 
 
     return (
