@@ -43,7 +43,13 @@ type ScrollIntoViewProps = {
 export function scrollIntoView(props: ScrollIntoViewProps) {
     const { id, options = {}, delay } = props
     const element = document.getElementById(id)
+    const scrollContainer = document.getElementById('scroll-container')
 
+    if(scrollContainer.scrollHeight === scrollContainer.clientHeight)
+    {console.log("@!")
+        return null
+    }
+    
     if(!element)
     {
         console.error("Invalid Element / Element does not exist")

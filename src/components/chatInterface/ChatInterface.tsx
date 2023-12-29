@@ -33,7 +33,7 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
   ), [isFetching])
 
   return (
-    <div className='chat-interface'>
+    <div id='scroll-container' className='chat-interface'>
       <div className='intro'>
         <Fade
           collapse
