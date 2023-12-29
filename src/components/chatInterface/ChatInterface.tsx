@@ -8,6 +8,7 @@ import DialogFlow from './dialog/DialogFlow'
 import { defaultAPIFailedDialog, defaultResponseFallback } from '../../utils'
 import { StoreReducerType } from '../../store'
 import PromptSamples from './PromptSamples'
+import Fade from 'react-reveal/Fade';
 
 type Props = {}
 
@@ -34,9 +35,18 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
   return (
     <div className='chat-interface'>
       <div className='intro'>
-        <PromptSamples
-          onSelect={(prompt) => promptEditorRef.current.setValue(prompt)}
-        />
+        <Fade
+          collapse
+          top={dialog.length > 0}
+          bottom={dialog.length === 0}
+          duration={400}
+          delay={0}
+          when={dialog.length === 0}
+        >
+          <PromptSamples
+            onSelect={(prompt) => promptEditorRef.current.setValue(prompt)}
+          />
+        </Fade>
       </div>
       <div className='dialog-container'>
         <DialogFlow

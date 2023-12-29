@@ -36,11 +36,12 @@ export function generateDyanmicPlaceholder(props: GenerateDyanmicPlaceholderProp
 
 type ScrollIntoViewProps = {
     id: string,
+    delay?: number
     options?: ScrollIntoViewOptions
 }
 
 export function scrollIntoView(props: ScrollIntoViewProps) {
-    const { id, options = {} } = props
+    const { id, options = {}, delay } = props
     const element = document.getElementById(id)
 
     if(!element)
@@ -49,7 +50,9 @@ export function scrollIntoView(props: ScrollIntoViewProps) {
         return
     }
 
-    element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center', ...options })
+    setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center', ...options })
+    }, delay);
 }
 
 export function encryptJSON (params: Object) {

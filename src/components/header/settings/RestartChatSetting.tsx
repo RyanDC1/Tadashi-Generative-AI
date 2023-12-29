@@ -15,7 +15,7 @@ export default function RestartChatSetting() {
                     message.success("Chat History Cleared")
                 })
                 .catch(() => {
-                    message.error("Cannot delete chat history while response is generating")
+                    message.error("Please wait, Cannot delete chat history while response is generating")
                 })
             }}
         >
