@@ -118,10 +118,30 @@ body {
             display: none;
         }
     }
+
+    .dialog-content, .wmde-markdown {
+        font-size: 14px !important;
+    }
+
+    .chat-interface {
+        .intro {
+            display: none;
+        }
+    }
 }
 
 @media (max-width: 300px) {
     .header-title {
         display: none;
+    }
+
+    .dialog-content, .wmde-markdown {
+        font-size: 14px !important;
+    }
+
+    .chat-interface {
+        .intro {
+            display: none;
+        }
     }
 }

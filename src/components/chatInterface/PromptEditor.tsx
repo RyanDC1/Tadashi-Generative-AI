@@ -11,7 +11,13 @@ type Props = {
 }
 
 export type PromptEditorRef = {
-    focus: () => void
+    focus: () => void,
+    setValue: (value: string) => void
+}
+
+enum InputMode {
+    Touch = 'touch',
+    Mouse = 'mouse'
 }
 
 const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
@@ -19,15 +25,33 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
     const { onSend, disabled = false } = props
 
     const [enableSend, setEnableSend] = useState(false)
+    const [controlledValue, setControlledValue] = useState(undefined)
+    const [inputMode, setInputMode] = useState<PointerEvent['pointerType']>(InputMode.Mouse)
     const [key, setKey] = useState(0)
 
     const inputRef = useRef<TextAreaRef>(null!)
 
     useImperativeHandle(ref, () => (
         {
-            focus: () => inputRef.current.focus()
+            focus: () => {
+                // Input will only be focused if user is using a mouse input
+                // to prevent keypad from popping up on focus
+                inputMode === InputMode.Mouse && inputRef.current.focus()
+            },
+            setValue: (value: string) => {
+                setControlledValue(value)
+                inputRef.current.focus()
+                if(!isEmpty(value?.trim?.()))
+                {
+                    setEnableSend(true)
+                    console.log(inputRef.current.resizableTextArea.textArea)
+                    setTimeout(() => {
+                        inputRef.current.resizableTextArea.textArea.scrollTo(0, inputRef.current.resizableTextArea.textArea.scrollHeight)
+                    }, 20);
+                }
+            }
         }
-    ), [])
+    ), [inputMode])
 
     useEffect(() => {
         const typewriter = generateDyanmicPlaceholder({ id: 'chat-prompt', options: PromptHelpers })
@@ -48,9 +72,21 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
                     minRows: 3,
                     maxRows: 5
                 }}
+                onClick={(event) => {
+                    const pointerEvent = event.nativeEvent as PointerEvent
+                    if(inputMode !== pointerEvent?.pointerType)
+                    {
+                        setInputMode(pointerEvent.pointerType)
+                    }
+                }}
                 className='prompt-editor'
                 placeholder={key > 0 ? undefined : `Ask Tadashi `}
                 onChange={(event) => {
+                    if(controlledValue !== undefined)
+                    {
+                        // set value only when in controlled state to avoid re-renders
+                        setControlledValue(event.target.value || undefined)
+                    }
                     if (!isEmpty(event.target.value?.trim?.())) {
                         enableSend === false && setEnableSend(true)
                     }
@@ -64,6 +100,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
                         sendPrompt()
                     }
                 }}
+                value={controlledValue}
             />
             <Button
                 className='send-btn'
@@ -78,6 +115,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
     function sendPrompt() {
         if (enableSend && !disabled) {
             onSend(inputRef.current.resizableTextArea.textArea.value.trim())
+            setControlledValue(undefined)
             setKey(key + 1)
         }
     }

@@ -1,12 +1,13 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
+import { notification } from 'antd'
+import { useStore } from 'react-redux'
 import PromptEditor, { PromptEditorRef } from './PromptEditor'
 import { ChatService } from '../../services/ChatService'
 import { ChatActorType, ChatRequest, DialogType } from '../../models'
-import { notification } from 'antd'
 import DialogFlow from './dialog/DialogFlow'
 import { defaultAPIFailedDialog, defaultResponseFallback } from '../../utils'
-import { useStore } from 'react-redux'
 import { StoreReducerType } from '../../store'
+import PromptSamples from './PromptSamples'
 
 type Props = {}
 
@@ -29,11 +30,13 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
       prompt: (value) => promptAssistant(value)
     }
   ), [isFetching])
-  
+
   return (
     <div className='chat-interface'>
       <div className='intro'>
-
+        <PromptSamples
+          onSelect={(prompt) => promptEditorRef.current.setValue(prompt)}
+        />
       </div>
       <div className='dialog-container'>
         <DialogFlow

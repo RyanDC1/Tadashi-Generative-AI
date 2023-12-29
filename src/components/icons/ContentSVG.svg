@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+
+<defs>
+</defs>
+<g style="stroke: none; stroke-width: 0; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: none; fill-rule: nonzero; opacity: 1;" transform="translate(1.4065934065934016 1.4065934065934016) scale(2.81 2.81)" >
+	<path d="M 90 78.776 H 0 V 26.54 c 28.88 -4.554 58.837 -4.731 90 0 V 78.776 z" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(202,252,231); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) " stroke-linecap="round" />
+	<rect x="0" y="12.22" rx="0" ry="0" width="90" height="14.32" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(63,178,151); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+	<rect x="7.8" y="36.4" rx="0" ry="0" width="33.52" height="32.65" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(63,178,151); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+	<polygon points="41.32,51.66 34.17,45.46 23.43,61.73 16.15,55.72 7.8,69.05 41.32,69.05 " style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(78,229,193); fill-rule: nonzero; opacity: 1;" transform="  matrix(1 0 0 1 0 0) "/>
+	<rect x="7.8" y="18.38" rx="0" ry="0" width="52.41" height="2" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(193,244,227); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+	<rect x="77.34" y="18.38" rx="0" ry="0" width="4.86" height="2" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(193,244,227); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+	<rect x="51.38" y="36.27" rx="0" ry="0" width="30.82" height="2" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(63,178,151); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+	<rect x="51.38" y="46.5" rx="0" ry="0" width="30.82" height="2" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(63,178,151); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+	<rect x="51.38" y="56.73" rx="0" ry="0" width="30.82" height="2" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(63,178,151); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+	<rect x="51.38" y="66.96" rx="0" ry="0" width="30.82" height="2" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(63,178,151); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+	<rect x="67.11" y="18.38" rx="0" ry="0" width="4.86" height="2" style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-linejoin: miter; stroke-miterlimit: 10; fill: rgb(193,244,227); fill-rule: nonzero; opacity: 1;" transform=" matrix(1 0 0 1 0 0) "/>
+</g>
+</svg>

@@ -5,9 +5,9 @@ chatController.post('/prompt', async (req, res) => {
 
     const { prompt, temperature = 0.5, history = [] } = req.body
 
-    if(history.length > 30)
+    if(history.length > 10)
     {
-        let insertIndex = history.length - 30
+        let insertIndex = history.length - 10
         if(insertIndex % 2 === 1)
         {
             // ensure proper flow of actors is followed

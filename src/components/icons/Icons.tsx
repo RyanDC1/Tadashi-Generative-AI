@@ -1,5 +1,19 @@
 import { CustomIconComponentProps } from "@ant-design/icons/lib/components/Icon";
 import Icon from "@ant-design/icons";
+//@ts-expect-error - vite svgr paths
+import CodeSVG from './CodeSVG.svg?react';
+//@ts-expect-error
+import StorySVG from './StorySVG.svg?react';
+//@ts-expect-error
+import TranslateSVG from './TranslateSVG.svg?react';
+//@ts-expect-error
+import ContentSVG from './ContentSVG.svg?react';
+//@ts-expect-error
+import EntertainmentSVG from './EntertainmentSVG.svg?react';
+//@ts-expect-error
+import GlobalSearchSVG from './GlobalSearchSVG.svg?react';
+//@ts-expect-error
+import ToDoSVG from './ToDoSVG.svg?react';
 
 const Palm2 = () => (
     <svg style={{ width: 16, height: 16 }} xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" version="1.1" id="Standard_product_icon__x28_1:1_x29_" x="0px" y="0px" width="192px" height="192px" viewBox="0 0 192 192" enableBackground="new 0 0 192 192" xmlSpace="preserve">
@@ -81,10 +95,25 @@ const DarkModeSVG = () => (
 
 )
 
-const IconGenerator = (component, props: Partial<CustomIconComponentProps>) => (
-    <Icon component={component} {...props} />
-)
+type IconGeneratorProps = Partial<CustomIconComponentProps> & {
+    size?: number
+}
 
-export const Palm2Icon = (props: Partial<CustomIconComponentProps>) => IconGenerator(Palm2, props)
-export const LightModeOutlined = (props: Partial<CustomIconComponentProps>) => IconGenerator(LightModeSVG, props)
-export const DarkModeOutlined = (props: Partial<CustomIconComponentProps>) => IconGenerator(DarkModeSVG, props)
+const IconGenerator = (
+    component: React.ComponentType<CustomIconComponentProps | React.SVGProps<SVGSVGElement>> | React.ForwardRefExoticComponent<CustomIconComponentProps>,
+    props: IconGeneratorProps
+) => {
+    const { style = {}, ...rest } = props
+    return <Icon component={component} {...rest} style={{ fontSize: props.size, ...style }} />
+}
+
+export const Palm2Icon = (props: IconGeneratorProps) => IconGenerator(Palm2, props)
+export const LightModeOutlined = (props: IconGeneratorProps) => IconGenerator(LightModeSVG, props)
+export const DarkModeOutlined = (props: IconGeneratorProps) => IconGenerator(DarkModeSVG, props)
+export const CodeIcon = (props: IconGeneratorProps) => IconGenerator(CodeSVG, props)
+export const StoryIcon = (props: IconGeneratorProps) => IconGenerator(StorySVG, props)
+export const TranslateIcon = (props: IconGeneratorProps) => IconGenerator(TranslateSVG, props)
+export const ContentIcon = (props: IconGeneratorProps) => IconGenerator(ContentSVG, props)
+export const EntertainmentIcon = (props: IconGeneratorProps) => IconGenerator(EntertainmentSVG, props)
+export const GlobalSearchIcon = (props: IconGeneratorProps) => IconGenerator(GlobalSearchSVG, props)
+export const ToDoIcon = (props: IconGeneratorProps) => IconGenerator(ToDoSVG, props)

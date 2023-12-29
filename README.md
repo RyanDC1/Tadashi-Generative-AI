@@ -7,41 +7,41 @@ TADASHI is a generative AI chat application that uses Google's Deepmind Gemini A
 It also has the capability to summarize content either in general or summarize the contents of a website by providing a prompt with the desired URL.
 
 
-[Generative AI DEMO](https://tadashi-ai.onrender.com)<br/>
+[TADASHI - Generative AI DEMO](https://tadashi-ai.onrender.com)<br/>
 (Please note: The site will take some time to load initially)
 
 ## Preview
 <div class='screenshots' style="display: flex; flex-flow: wrap; gap: 24px;">
     <div style="flex: 1 1 25vw;">
-        <img src='./assets/screenshot_1.png'>
+        <img align="center" src='./assets/screenshot_1.png'>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Ability to summarize text and generate code
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img src='./assets/screenshot_2.png'>
+        <img align="center" src='./assets/screenshot_2.png'>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Translation and understanding of foreign languages and text
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img src='./assets/screenshot_3.png'>
+        <img align="center" src='./assets/screenshot_3.png'>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Content Generation
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img src='./assets/screenshot_3.png'>
+        <img align="center" src='./assets/screenshot_3.png'>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Semantic extraction and task Execution
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img src='./assets/screenshot_settings.png'>
+        <img align="center" src='./assets/screenshot_settings.png'>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Chat modes, each mode will shift the probability of finding the right candidate response
         </p>
@@ -55,7 +55,7 @@ To Study and understand Generative AI and Large Language Models.
 # Introduction
 Generative AI refers to any AI system that can generate content such as text, images, and code. Generative AI and Large Language models are a subset deep learning models.
 
-## Large Language Models ( LLM )
+## Large Language Models (LLM)
 Large Language Models, as the  term suggests is a language model that is trained on a large set of text/language data (petabytes worth). This data will include categories and patterns that define it such as language, sentiement. This will help the LLM understand these patterns during training. 
 
 These models are trained in <b>general</b> to decode text based data and can be <b>fine tuned</b> for specific implmentations.
@@ -98,6 +98,7 @@ While LLM's are specifically designed to generate and process text based content
     - Redux Toolkit: https://redux-toolkit.js.org
     - Vite Module Bundler: https://vitejs.dev/guide
     - SVG Backgrounds: https://haikei.app
+    - Icons: https://www.iconpacks.net
 
 ## Local Instance
 This project has a few environment variables that need to be configured for it to run locally.

@@ -5,13 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build-ui && npm run build-server",
-    "start": "cd server && npm start",
-    "build-win": "npm i && npm run build && @powershell Copy-Item dist -Recurse ./server",
-    "build-ui": "npm i && vite build && cp -r dist ./server",
-    "build-server": "cd server && npm i",
-    "build-local": "npm run build-win && npm run build-server",
-    "start-server": "cd server && npm run start"
+    "build": "npm i -g pnpm && pnpm run build-ui && pnpm run build-server",
+    "start": "cd server && pnpm start",
+    "build-win": "pnpm i && pnpm run build && @powershell Copy-Item dist -Recurse ./server",
+    "build-ui": "pnpm i && vite build && cp -r dist ./server",
+    "build-server": "cd server && pnpm i",
+    "build-local": "pnpm run build-win && pnpm run build-server",
+    "start-server": "cd server && pnpm run start"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
@@ -42,6 +42,7 @@
     "eslint-plugin-react-refresh": "^0.4.4",
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
-    "vite": "^5.0.0"
+    "vite": "^5.0.0",
+    "vite-plugin-svgr": "^4.2.0"
   }
 }

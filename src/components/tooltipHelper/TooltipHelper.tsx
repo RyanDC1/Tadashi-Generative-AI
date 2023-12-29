@@ -6,7 +6,7 @@ interface Props extends TooltipPropsWithTitle {}
 
 export default function TooltipHelper(props: Props) {
   return (
-    <Tooltip placement='right' overlayInnerStyle={{ width: 350 }} {...props}>
+    <Tooltip placement='right' {...props}>
         <Typography.Text type='secondary'>
             <InfoCircleOutlined className='tooltip-helper-icon'/>
         </Typography.Text>

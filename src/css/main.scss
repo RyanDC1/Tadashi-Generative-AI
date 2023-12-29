@@ -6,6 +6,7 @@
 
     .header-content {
         height: inherit;
+        align-items: center;
 
         .header-title-container {
             align-items: center;
@@ -19,7 +20,7 @@
             position: relative;
             bottom: 2px;
         }
-        
+
         .settings-icon {
             color: white;
         }
@@ -31,6 +32,17 @@
     padding-bottom: 230px;
     height: calc(100vh - variables.$header-height);
     margin-top: variables.$header-height !important;
+
+    .intro {
+        text-align: center;
+        padding: 24px 135px;
+
+        .prompt-example-card {
+            user-select: none;
+            width: 280px;
+            height: 150px;
+        }
+    }
 
     .prompt-container {
         padding: 14px 8px;
@@ -46,6 +58,7 @@
         .send-btn {
             width: 60px;
             height: inherit;
+            border-left: none;
         }
     }
 

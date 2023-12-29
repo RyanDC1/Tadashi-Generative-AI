@@ -1,5 +1,5 @@
 import { SettingOutlined } from '@ant-design/icons'
-import { Drawer, Space } from 'antd'
+import { Drawer, Space, Typography } from 'antd'
 import Settings from './Settings'
 import { useTheme } from '../../../utils'
 import { Theme } from '../../../store'
