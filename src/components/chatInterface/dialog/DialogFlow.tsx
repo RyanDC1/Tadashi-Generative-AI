@@ -36,7 +36,7 @@ export default function DialogFlow(props: Props) {
         <>
             {
                 dialog.map((dialogContent) => (
-                    <Fade collapse bottom duration={450} delay={dialogAnimationDelay}>
+                    <Fade key={dialogContent.id} collapse bottom duration={450} delay={dialogAnimationDelay}>
                         {dialogContent.author === ChatActorType.AI ?
                             <DialogBubble
                                 id={String(dialogContent.id)}

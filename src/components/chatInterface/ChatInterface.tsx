@@ -37,8 +37,8 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
       <div className='intro'>
         <Fade
           collapse
-          top={dialog.length > 0}
-          bottom={dialog.length === 0}
+          opposite
+          bottom
           duration={400}
           delay={0}
           when={dialog.length === 0}
