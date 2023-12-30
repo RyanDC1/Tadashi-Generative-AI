@@ -27,6 +27,7 @@ export default function DialogFlow(props: Props) {
                 id: 'response-loading-indicator',
                 delay: 400,
                 scrollContainer: document.getElementById('chat-scroll-container'),
+                position: 'bottom'
             })
         }
     }, [loading])
