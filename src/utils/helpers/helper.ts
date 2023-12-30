@@ -50,8 +50,14 @@ export function scrollIntoView(props: ScrollIntoViewProps) {
         return
     }
 
+    const scrollContainer = document.getElementById('chat-scroll-container')
+
     setTimeout(() => {
-        element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center', ...options })
+        //element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center', ...options })
+        scrollContainer.scroll({
+            top: element.parentElement.offsetTop - 64,
+            behavior: 'smooth',
+        })
     }, delay);
 }
 

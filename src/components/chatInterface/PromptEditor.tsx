@@ -44,10 +44,6 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
                 if(!isEmpty(value?.trim?.()))
                 {
                     setEnableSend(true)
-                    setTimeout(() => {
-                        // scroll to end of inserted content
-                        inputRef.current.resizableTextArea.textArea.scrollTo(0, inputRef.current.resizableTextArea.textArea.scrollHeight)
-                    }, 20);
                 }
             }
         }

@@ -14,7 +14,7 @@ export default function Header() {
 
     return (
         <>
-            <div className='header sticky-header'>
+            <div id='layout-header' className='header sticky-header'>
                 <Flex justify='space-between' className='header-content'>
                     <span>
                         <Space className='header-title-container'>

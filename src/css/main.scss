@@ -29,6 +29,7 @@
 
 .chat-interface {
     overflow-y: auto;
+    overscroll-behavior: contain;
     padding-bottom: 230px;
     height: calc(100vh - variables.$header-height);
     margin-top: variables.$header-height !important;
