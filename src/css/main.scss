@@ -66,9 +66,14 @@
         padding-top: 14px;
     }
 
+    #response-loading-indicator {
+        position: relative;
+    }
+
     .dialog-bubble {
         display: flex;
         padding: 8px 14px;
+        position: relative;
 
         .dialog-content {
             box-shadow: 1px 0px 8px 0px rgb(128 128 128 / 35%);
