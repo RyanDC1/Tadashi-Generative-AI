@@ -34,14 +34,20 @@ export function generateDyanmicPlaceholder(props: GenerateDyanmicPlaceholderProp
 
 }
 
-type ScrollIntoViewProps = {
+type ElementScrollProps = {
     id: string,
     delay?: number
-    options?: ScrollIntoViewOptions
+    behavior?: ScrollBehavior,
+    /**
+     * @default window
+     */
+    scrollContainer?: HTMLElement,
+    offsetTop?: number
 }
 
-export function scrollIntoView(props: ScrollIntoViewProps) {
-    const { id, options = {}, delay } = props
+export function scrollToElement(props: ElementScrollProps) {
+    const { id, behavior = 'smooth', delay, scrollContainer = window, offsetTop = 0 } = props
+
     const element = document.getElementById(id)
 
     if(!element)
@@ -50,13 +56,10 @@ export function scrollIntoView(props: ScrollIntoViewProps) {
         return
     }
 
-    const scrollContainer = document.getElementById('chat-scroll-container')
-
     setTimeout(() => {
-        //element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center', ...options })
         scrollContainer.scroll({
-            top: element.parentElement.offsetTop - 64,
-            behavior: 'smooth',
+            top: element.offsetTop - offsetTop,
+            behavior: behavior,
         })
     }, delay);
 }

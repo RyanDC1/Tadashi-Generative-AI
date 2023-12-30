@@ -1,10 +1,10 @@
-import { useEffect, useLayoutEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { Typography } from 'antd'
 import { debounce, last } from 'lodash'
 import { ChatActorType, DialogType } from '../../../models'
 import DialogBubble from './DialogBubble'
 import { LoadingOutlined } from '@ant-design/icons'
-import { scrollIntoView } from '../../../utils'
+import { scrollToElement } from '../../../utils'
 import Fade from 'react-reveal/Fade';
 
 type Props = {
@@ -12,7 +12,7 @@ type Props = {
     loading?: boolean
 }
 
-const debouncedScroll = debounce(scrollIntoView, 25)
+const debouncedScroll = debounce(scrollToElement, 60)
 
 export default function DialogFlow(props: Props) {
 
@@ -25,10 +25,8 @@ export default function DialogFlow(props: Props) {
             // reset scroll on every new dialog
             debouncedScroll({
                 id: 'response-loading-indicator',
-                options: {
-                    block: 'start'
-                },
-                delay: 400
+                delay: 400,
+                scrollContainer: document.getElementById('chat-scroll-container'),
             })
         }
     }, [loading])
@@ -38,10 +36,9 @@ export default function DialogFlow(props: Props) {
             // reset scroll on every new dialog
             debouncedScroll({
                 id: String(last(dialog).id),
-                options: {
-                    block: 'start'
-                },
-                delay: 400
+                delay: 400,
+                scrollContainer: document.getElementById('chat-scroll-container'),
+                offsetTop: document.getElementById('layout-header')?.clientHeight
             })
         }
     }, [dialog])
@@ -51,34 +48,34 @@ export default function DialogFlow(props: Props) {
         <>
             {
                 dialog.map((dialogContent) => (
-                    <Fade key={dialogContent.id} collapse bottom duration={450} delay={dialogAnimationDelay}>
-                        {dialogContent.author === ChatActorType.AI ?
-                            <DialogBubble
-                                id={String(dialogContent.id)}
-                                key={dialogContent.id}
-                                content={dialogContent.content}
-                                date={dialogContent.date}
-                                className='ai-dialog-bubble'
-                                allowMarkdownContent
-                            />
-                            :
-                            <DialogBubble
-                                id={String(dialogContent.id)}
-                                key={dialogContent.id}
-                                content={dialogContent.content}
-                                date={dialogContent.date}
-                                className='user-dialog-bubble'
-                            />}
-                    </Fade>
+                    <span key={dialogContent.id} id={String(dialogContent.id)}>
+                        <Fade collapse bottom duration={450} delay={dialogAnimationDelay}>
+                            {dialogContent.author === ChatActorType.AI ?
+                                <DialogBubble
+                                    content={dialogContent.content}
+                                    date={dialogContent.date}
+                                    className='ai-dialog-bubble'
+                                    allowMarkdownContent
+                                />
+                                :
+                                <DialogBubble
+                                    content={dialogContent.content}
+                                    date={dialogContent.date}
+                                    className='user-dialog-bubble'
+                                />}
+                        </Fade>
+                    </span>
                 ))
             }
             {
                 loading &&
-                <Fade collapse bottom duration={450} delay={dialogAnimationDelay}>
-                    <Typography.Text className='pad-14' id='response-loading-indicator' type='secondary' strong>
-                        Generating Response <LoadingOutlined color='#52C41A' className='ml-4' />
-                    </Typography.Text>
-                </Fade>
+                <span id='response-loading-indicator'>
+                    <Fade collapse bottom duration={450} delay={dialogAnimationDelay}>
+                        <Typography.Text className='pad-14' type='secondary' strong>
+                            Generating Response <LoadingOutlined color='#52C41A' className='ml-4' />
+                        </Typography.Text>
+                    </Fade>
+                </span>
             }
         </>
     )

@@ -3,7 +3,6 @@ import dayjs from 'dayjs'
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
 type Props = {
-    id: string
     content: string,
     date: Date,
     className?: string,
@@ -12,10 +11,10 @@ type Props = {
 
 export default function DialogBubble(props: Props) {
 
-    const { id, content, date, className = '', allowMarkdownContent = false } = props
+    const { content, date, className = '', allowMarkdownContent = false } = props
 
     return (
-        <div id={id} className={'dialog-bubble'.concat(" ", className).trim()}>
+        <div className={'dialog-bubble'.concat(" ", className).trim()}>
             <div className='dialog-content-container'>
                 <Card className='dialog-content'>
                     {
