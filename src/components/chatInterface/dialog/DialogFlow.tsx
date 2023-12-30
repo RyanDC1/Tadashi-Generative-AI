@@ -1,6 +1,6 @@
-import { useEffect } from 'react'
+import { useEffect, useLayoutEffect } from 'react'
 import { Typography } from 'antd'
-import { last } from 'lodash'
+import { debounce, last } from 'lodash'
 import { ChatActorType, DialogType } from '../../../models'
 import DialogBubble from './DialogBubble'
 import { LoadingOutlined } from '@ant-design/icons'
@@ -12,24 +12,39 @@ type Props = {
     loading?: boolean
 }
 
+const debouncedScroll = debounce(scrollIntoView, 25)
+
 export default function DialogFlow(props: Props) {
 
     const { dialog, loading = false } = props
 
     const dialogAnimationDelay = dialog.length == 1 ? 120 : 0
 
-    useEffect(() => {
-        if (dialog.length > 0) {
+    useLayoutEffect(() => {
+        if (loading) {
             // reset scroll on every new dialog
-            scrollIntoView({
-                id: loading ? 'response-loading-indicator' : String(last(dialog).id),
+            debouncedScroll({
+                id: 'response-loading-indicator',
                 options: {
                     block: 'start'
                 },
-                delay: 450
+                delay: 400
             })
         }
-    }, [dialog, loading])
+    }, [loading])
+
+    useLayoutEffect(() => {
+        if (dialog.length > 0 && last(dialog).author === ChatActorType.AI) {
+            // reset scroll on every new dialog
+            debouncedScroll({
+                id: String(last(dialog).id),
+                options: {
+                    block: 'start'
+                },
+                delay: 400
+            })
+        }
+    }, [dialog])
 
 
     return (

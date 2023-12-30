@@ -35,7 +35,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
         {
             focus: () => {
                 // Input will only be focused if user is using a mouse input
-                // to prevent keypad from popping up on focus
+                // to prevent keypad from popping up on focus on touch devices
                 inputMode === InputMode.Mouse && inputRef.current.focus()
             },
             setValue: (value: string) => {
@@ -44,8 +44,8 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
                 if(!isEmpty(value?.trim?.()))
                 {
                     setEnableSend(true)
-                    console.log(inputRef.current.resizableTextArea.textArea)
                     setTimeout(() => {
+                        // scroll to end of inserted content
                         inputRef.current.resizableTextArea.textArea.scrollTo(0, inputRef.current.resizableTextArea.textArea.scrollHeight)
                     }, 20);
                 }

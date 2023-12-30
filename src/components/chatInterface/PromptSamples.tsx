@@ -43,7 +43,13 @@ const promptSamples: PromptSample[] = [
         icon: <CodeIcon size={32} />,
         prompts: [
             `Write code for a generator function in Javascript, explain in detail with examples and use cases.`,
-            `Write code for a sterilizer function for HTML tags in C#, what are some good practices to be followed?`
+            `Write code for a sterilizer function for HTML tags in C#, what are some good practices to be followed?`,
+            `Generate typeScript interface with jsdocs for the following properties:
+            \r\nduration number Duration of the reveal animation in milliseconds. Defaults to 1000 milliseconds. Optional.
+            \rdelay number Delay before the start of reveal animation in milliseconds. Can be handy if several reveals are happening at approximately same time and you want to space them out a bit. Optional.
+            \rleft boolean Sets the origin of the reveal animation to left. Defaults to false. Optional.
+            \rright boolean Sets the origin of the reveal animation to right. Defaults to false. Optional.
+            \rtop boolean Sets the origin of the reveal animation to top. Defaults to false. Optional.`
         ]
     },
     {

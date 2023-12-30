@@ -31,7 +31,9 @@ export default function SettingsDrawer(props: Props) {
             destroyOnClose
             onClose={onClose}
         >
-            <Settings />
+            <Settings 
+                onReset={onClose}
+            />
         </Drawer>
     )
 
