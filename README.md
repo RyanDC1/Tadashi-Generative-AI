@@ -34,7 +34,7 @@ It also has the capability to summarize content either in general or summarize t
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img align="center" src='./assets/screenshot_3.png'>
+        <img align="center" src='./assets/screenshot_4.png'>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Semantic extraction and task Execution
         </p>
