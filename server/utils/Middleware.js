@@ -1,6 +1,7 @@
 const { Crypt } = require('hybrid-crypto-js')
 
 const middleware = (request, response, next) => {
+    console.log(request.url)
     if(!(process.env.ALLOWED_ORIGINS.includes(request.headers.origin)) && request.url !== '/api/v1/ping')
     {
         return response.status(401).json({ error: 'Unauthorized' }).end()
@@ -25,7 +26,7 @@ const unknownEndpoint = (request, response) => {
 }
 
 const errorhandler = (error, request, response) => {
-    console.error(error.message)
+    console.error(request.url, error.message)
     return response.status(500).json({ error: 'Server could not process the request', message: error.message })
 }
 
