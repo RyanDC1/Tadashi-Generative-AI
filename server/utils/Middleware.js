@@ -7,7 +7,7 @@ const middleware = (request, response, next) => {
         return response.status(401).json({ error: 'Unauthorized' }).end()
     }
 
-    if(JSON.parse(process.env.PRODUCTION_MODE ?? 'true') === true && request.url !== '/api/v1/ping')
+    if(JSON.parse(process.env.PRODUCTION_MODE ?? 'true') === true)
     {
         const entropy = process.env.VITE_RSA_ENTROPHY;
         const crypt = new Crypt({
