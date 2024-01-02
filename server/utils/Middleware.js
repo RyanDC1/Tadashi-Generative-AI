@@ -1,7 +1,7 @@
 const { Crypt } = require('hybrid-crypto-js')
 
 const middleware = (request, response, next) => {
-    if(!(process.env.ALLOWED_ORIGINS.includes(request.headers.origin)))
+    if(!(process.env.ALLOWED_ORIGINS.includes(request.headers.origin)) && request.url !== '/api/v1/ping')
     {
         return response.status(401).json({ error: 'Unauthorized' }).end()
     }
