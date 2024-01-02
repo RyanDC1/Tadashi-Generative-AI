@@ -2,12 +2,12 @@ const { Crypt } = require('hybrid-crypto-js')
 
 const middleware = (request, response, next) => {
     console.log(request.url)
-    if(!(process.env.ALLOWED_ORIGINS.includes(request.headers.origin)) && request.url !== '/api/v1/ping')
+    if(!(process.env.ALLOWED_ORIGINS.includes(request.headers.origin)))
     {
         return response.status(401).json({ error: 'Unauthorized' }).end()
     }
 
-    if(JSON.parse(process.env.PRODUCTION_MODE ?? 'true') === true)
+    if(JSON.parse(process.env.PRODUCTION_MODE ?? 'true') === true && request.url !== '/api/v1/ping')
     {
         const entropy = process.env.VITE_RSA_ENTROPHY;
         const crypt = new Crypt({
