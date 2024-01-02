@@ -112,6 +112,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
         if (enableSend && !disabled) {
             onSend(inputRef.current.resizableTextArea.textArea.value.trim())
             setControlledValue(undefined)
+            setEnableSend(false)
             setKey(key + 1)
         }
     }
