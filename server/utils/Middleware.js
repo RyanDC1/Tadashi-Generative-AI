@@ -1,7 +1,6 @@
 const { Crypt } = require('hybrid-crypto-js')
 
 const middleware = (request, response, next) => {
-    console.log(request.url)
     if(!(process.env.ALLOWED_ORIGINS.includes(request.headers.origin)))
     {
         return response.status(401).json({ error: 'Unauthorized' }).end()

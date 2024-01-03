@@ -92,6 +92,7 @@ While LLM's are specifically designed to generate and process text based content
         - [Concepts](https://ai.google.dev/docs/concepts)
         - [LLMS](https://www.youtube.com/watch?v=zizonToFXDs)
         - [Generative AI](https://www.youtube.com/watch?v=G2fqAlgmoPo)
+        - [How does Generative AI work](https://www.simform.com/blog/how-does-generative-ai-work/)
     - Prompt Best Practices: https://ai.google.dev/docs/prompt_best_practices
 
 - Tools and Resources

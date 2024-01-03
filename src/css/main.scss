@@ -69,11 +69,12 @@
 
     #response-loading-indicator {
         position: relative;
+        left: 10px
     }
 
     .dialog-bubble {
         display: flex;
-        padding: 8px 14px;
+        padding: 8px 24px;
         position: relative;
 
         .dialog-content {

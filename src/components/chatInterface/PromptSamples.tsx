@@ -172,7 +172,7 @@ const promptSamples: PromptSample[] = [
         icon: <ToDoIcon size={32} />,
         prompts: [
             `Compose an email for an Ad Campaign marketing an electric car called 'Invictus'`,
-            `What are some good tips to follow to whip up a fresh batch of fresh yummy cookies?`
+            `What are some good tips to follow to whip up a fresh batch of yummy cookies?`
         ]
     }
 ]

@@ -61,6 +61,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
             <Input.TextArea
                 key={key}
                 ref={inputRef}
+                translate='no'
                 disabled={disabled}
                 id='chat-prompt'
                 autoFocus

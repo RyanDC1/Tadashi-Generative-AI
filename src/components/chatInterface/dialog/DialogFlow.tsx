@@ -27,6 +27,7 @@ export default function DialogFlow(props: Props) {
                 id: 'response-loading-indicator',
                 delay: 400,
                 scrollContainer: document.getElementById('chat-scroll-container'),
+                padding: document.getElementById('layout-header')?.clientHeight,
                 position: 'bottom'
             })
         }
@@ -39,7 +40,7 @@ export default function DialogFlow(props: Props) {
                 id: String(last(dialog).id),
                 delay: 400,
                 scrollContainer: document.getElementById('chat-scroll-container'),
-                offsetTop: document.getElementById('layout-header')?.clientHeight
+                padding: document.getElementById('layout-header')?.clientHeight,
             })
         }
     }, [dialog])

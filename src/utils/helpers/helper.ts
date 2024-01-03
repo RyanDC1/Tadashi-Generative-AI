@@ -42,7 +42,7 @@ type ElementScrollProps = {
      * @default window
      */
     scrollContainer?: HTMLElement,
-    offsetTop?: number,
+    padding?: number,
     /**
      * @default top
      */
@@ -50,7 +50,7 @@ type ElementScrollProps = {
 }
 
 export function scrollToElement(props: ElementScrollProps) {
-    const { id, behavior = 'smooth', delay, scrollContainer = window, offsetTop = 0, position = 'top' } = props
+    const { id, behavior = 'smooth', delay, scrollContainer = window, padding = 0, position = 'top' } = props
 
     const element = document.getElementById(id)
 
@@ -61,8 +61,8 @@ export function scrollToElement(props: ElementScrollProps) {
     }
 
     const calculatedPosition = {
-        top: element.offsetTop - offsetTop,
-        bottom: (element.offsetTop + element.offsetHeight) - offsetTop
+        top: element.offsetTop - padding,
+        bottom: (element.offsetTop + element.offsetHeight) - padding
     }[position]
 
     setTimeout(() => {
