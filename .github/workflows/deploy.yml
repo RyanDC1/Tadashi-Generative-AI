@@ -35,5 +35,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: "gen-ai"
-          entrypoint: "https://deno.land/std@0.211.0/http/file_server.ts"
+          entrypoint: "file:///server/index.js"
           root: "server"
