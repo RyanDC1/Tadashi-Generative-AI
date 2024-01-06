@@ -7,7 +7,7 @@ TADASHI is a generative AI chat application that uses Google's Deepmind Gemini A
 It also has the capability to summarize content either in general or summarize the contents of a website by providing a prompt with the desired URL.
 
 
-[TADASHI - Generative AI DEMO](https://tadashi-ai.onrender.com)<br/>
+<a href='https://tadashi-ai.onrender.com' target="_blank">TADASHI - Generative AI DEMO</a><br/>
 (Please note: The site will take some time to load initially)
 
 ## Preview
