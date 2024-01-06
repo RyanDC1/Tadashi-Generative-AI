@@ -1,23 +1,20 @@
 {
     "version": 2,
     "builds": [
-        {
-            "src": "./server/index.js",
-            "use": "@vercel/node"
-        },
-        {
-            "src": "src/**",
-            "use": "@vercel/static"
-        }
+      {
+        "src": "./server/index.js",
+        "use": "@vercel/node"
+      },
+      {
+        "src": "./dist",
+        "use": "@vercel/static"
+      }
     ],
-    "routes": [
-        {
-            "src": "/((?!.*\\.\\w+$).*)",
-            "dest": "/server/index.js"
-          },
-          {
-            "src": "/(.+\\.[a-z]+)$",
-            "dest": "/src/$1"
-          }
+  
+    "rewrites": [
+      {
+        "source": "/(.*)",
+        "destination": "/server/index.js"
+      }
     ]
-}
+  }
