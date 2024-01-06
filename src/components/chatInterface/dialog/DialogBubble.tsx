@@ -1,6 +1,9 @@
 import { Card, Tooltip, Typography } from 'antd'
 import dayjs from 'dayjs'
-import MarkdownPreview from '@uiw/react-markdown-preview';
+import advancedFormat from 'dayjs/plugin/advancedFormat'
+import MarkdownPreview from '@uiw/react-markdown-preview'
+
+dayjs.extend(advancedFormat)
 
 type Props = {
     content: string,
