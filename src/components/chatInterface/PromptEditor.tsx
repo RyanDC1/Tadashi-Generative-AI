@@ -1,8 +1,8 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
 import { Button, Input, Space } from 'antd'
 import { isEmpty } from 'lodash'
-import { PromptHelpers, generateDyanmicPlaceholder } from '../../utils'
 import { SendOutlined } from '@ant-design/icons'
+import { PromptHelpers, generateDynamicPlaceholder } from '../../utils'
 import { TextAreaRef } from 'antd/es/input/TextArea'
 
 type Props = {
