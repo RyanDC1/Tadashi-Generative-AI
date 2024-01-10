@@ -65,7 +65,7 @@ const promptSamples: PromptSample[] = [
     {
         id: 2,
         title: 'Language Translation',
-        description: 'Translate a foreign language and understand their orgin and pronunciation.',
+        description: 'Translate a foreign language and understand their origin and pronunciation.',
         icon: <TranslateIcon size={32} />,
         prompts: [
             `Which language is this text in 鯛も一人はうまからず and what does it mean. explain in detail`,
@@ -116,13 +116,13 @@ const promptSamples: PromptSample[] = [
             
             Bias and Fairness: Generative AI models can inherit and amplify biases present in the data they are trained on. Mitigating bias and ensuring fairness in generative AI systems is an ongoing challenge.
             
-            Interpretability and Explainability: Understanding how generative AI models generate data and content can be challenging. Developing methods to interpret and explain the inner workings of these models is crucial for building trust and ensuring responsible use.
+            Interoperability and Expandability: Understanding how generative AI models generate data and content can be challenging. Developing methods to interpret and explain the inner workings of these models is crucial for building trust and ensuring responsible use.
             
             Ethical Considerations: The rapid advancement of generative AI raises ethical concerns, such as the potential for misuse, deepfakes, and the impact on employment. Establishing ethical guidelines and regulations for the development and use of generative AI is essential.
             
             Generative AI is poised to transform industries and redefine the way we interact with technology. As this field continues to evolve, we can expect to witness even more groundbreaking applications and advancements that will shape the future of AI and its impact on society.
             `,
-            `Summerize what the following paragraph describes in a few points, keep it brief while explaining each point, add an awesome conclusion\r\n
+            `Summarize what the following paragraph describes in a few points, keep it brief while explaining each point, add an awesome conclusion\r\n
             Paragraph: In the tapestry of life, failure is not a full stop, but a comma, a pause that precedes a new chapter of growth and resilience. It is not a measure of our worth, but a catalyst for self-discovery and transformation. Embracing failure as a stepping stone towards success is a mindset shift that unlocks our true potential. When we learn to see setbacks as opportunities for growth, we open ourselves up to a world of possibilities. We become more resilient, more adaptable, and more determined to succeed. Failure is not something to be feared or avoided; it is an integral part of the human experience and a necessary ingredient for progress. It is in the crucible of failure that we forge our character, develop our grit, and discover our hidden strengths. By embracing failure, we unlock the door to a life of resilience, growth, and ultimately, success.
             `
         ]
@@ -147,9 +147,9 @@ const promptSamples: PromptSample[] = [
                 - if there is a win on a turn the progress the story further
                 - if there is a loss, trigger a defeat and end the story example: "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the beginning.
                 - there can be a minimum of 2 options and a maximum of 5 options.
-                - depending on the users option, the story will progress, each option will have a weightage that can turn the tide in favor or against the user. end the story after 4 turns, the user can either win or lose depending on the options chosen.
+                - depending on the users option, the story will progress, each option will have a weight-age that can turn the tide in favor or against the user. end the story after 4 turns, the user can either win or lose depending on the options chosen.
                 - One of the options should result in an immediate loss, where the user is defeated and the story ends here, prompt the user if they wish to try again. if they choose yes, the story starts from the beginning.
-                - The user can lose the game ending the story, for example if the user chooses the wrong option that does not correspond to the stats given at the start, trigger a loss saying "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the begining.
+                - The user can lose the game ending the story, for example if the user chooses the wrong option that does not correspond to the stats given at the start, trigger a loss saying "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the beginning.
                 - The options are very difficult and will make it more and more difficult for the user to win.
                 - The options will not hint what will happen should the user select that option, the aftermath will only be revealed after the user has made their choice.`,
             `Tell me a random funny and vivid joke in a story format`

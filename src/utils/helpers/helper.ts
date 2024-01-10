@@ -2,18 +2,18 @@ import { Options, TypewriterClass } from 'typewriter-effect';
 import Typewriter from 'typewriter-effect/dist/core';
 import { Crypt } from 'hybrid-crypto-js'
 
-type GenerateDyanmicPlaceholderProps = {
+type GenerateDynamicPlaceholderProps = {
     id: string,
     options: string[]
 }
 
-export function generateDyanmicPlaceholder(props: GenerateDyanmicPlaceholderProps): TypewriterClass {
+export function generateDynamicPlaceholder(props: GenerateDynamicPlaceholderProps): TypewriterClass {
     const { id, options } = props
 
     const placeholderElement: HTMLInputElement = document.getElementById(id) as HTMLInputElement
 
     if (placeholderElement?.placeholder == null) {
-        console.error("generateDyanmicPlaceholder: Element not found / Invlaid element")
+        console.error("generateDynamicPlaceholder: Element not found / Invalid element")
         return
     }
 
