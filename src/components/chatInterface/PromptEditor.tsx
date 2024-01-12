@@ -51,6 +51,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
 
     useEffect(() => {
         const typewriter = generateDyanmicPlaceholder({ id: 'chat-prompt', options: PromptHelpers })
+        const typewriter = generateDynamicPlaceholder({ id: 'chat-prompt', options: PromptHelpers })
         return () => {
             typewriter.stop()
         }
