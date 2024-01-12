@@ -34,10 +34,10 @@ export default function ChatModes() {
                     <TooltipHelper
                         title={
                             <>
-                                <p>Select the chat mode, this sets the temperature for the model (0.1 - 1.0)</p>
-                                <p><b>Creative (0.0)</b> - Responses are diverse</p>
-                                <p><b>Precise (1.0)</b> - Responses are deterministic</p>
-                                <p><b>Balanced (0.5)</b> - Best of both worlds</p>
+                                <p>Select a chat mode</p>
+                                <p><b>Creative</b> - Responses are diverse</p>
+                                <p><b>Precise</b> - Responses are deterministic</p>
+                                <p><b>Balanced</b> - Best of both worlds</p>
                             </>
                         }
                     />
