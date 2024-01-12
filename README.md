@@ -40,7 +40,7 @@ It also has the capability to summarize content either in general or summarize t
         </p>
     </div>
     <br/><br/><br/>
-    <div style="flex: 1 1 25vw;">
+    <div align="center style="flex: 1 1 25vw;">
         <img align="center" src='./assets/screenshot_settings.png'>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Chat modes, each mode will shift the probability of finding the right candidate response
@@ -87,7 +87,9 @@ While LLM's are specifically designed to generate and process text based content
 
 Generative AI models are designed to use neural networks to learn from large datasets of text, images, code, audio, video and even music. By discerning patterns within this data, these models are capable of producing novel content that mirrors the characteristics of the learned data.
 
-### Generative Adversarial Networks (GANs)
+### Generative Adversarial Networks (GAN)
+A Generative Adversarial Network (GAN) is a type of deep learning model that is used to train generative AI. GANs are used to generate new data that mirrors the characteristics of the training data, and have been used to generate images, text, audio, and other types of data.
+
 GANs consist of two components or neural networks:
 1. Generator
 2. Discriminator
