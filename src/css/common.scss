@@ -96,6 +96,12 @@ body {
     background: none !important;
 }
 
+.wmde-markdown {
+    table {
+        overflow-x: auto;
+    }
+}
+
 .ant-drawer .ant-drawer-header-title {
     flex-direction: row-reverse;
     padding-right: 0px;
