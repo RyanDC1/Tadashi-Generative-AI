@@ -56,6 +56,10 @@
             resize: none;
             border-radius: 6px 0px 0px 6px;
             padding-right: 34px;
+
+            &::-webkit-scrollbar {
+                width: 5px;
+            }
         }
 
         .send-btn {
