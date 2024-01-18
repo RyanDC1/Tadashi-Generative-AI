@@ -55,12 +55,27 @@
         .prompt-editor {
             resize: none;
             border-radius: 6px 0px 0px 6px;
+            padding-right: 34px;
         }
 
         .send-btn {
             width: 60px;
             height: inherit;
             border-left: none;
+        }
+
+        .editor-plugins {
+            position: relative;
+            float: right;
+            top: 85px;
+            z-index: 1;
+            right: 72px;
+            height: 70px;
+            padding: 4px 0;
+
+            .ant-btn:not(:hover){
+                color: rgba(255, 255, 255, 30%);
+            }
         }
     }
 

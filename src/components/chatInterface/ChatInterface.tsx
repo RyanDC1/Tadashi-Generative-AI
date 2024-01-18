@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 import { notification } from 'antd'
 import { useStore } from 'react-redux'
-import PromptEditor, { PromptEditorRef } from './PromptEditor'
+import PromptEditor, { PromptEditorRef } from './editor/PromptEditor'
 import { ChatService } from '../../services/ChatService'
 import { ChatActorType, ChatRequest, DialogType } from '../../models'
 import DialogFlow from './dialog/DialogFlow'

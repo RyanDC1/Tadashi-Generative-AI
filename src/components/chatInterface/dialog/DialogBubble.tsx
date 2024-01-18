@@ -22,24 +22,24 @@ export default function DialogBubble(props: Props) {
                 <Card className='dialog-content'>
                     {
                         allowMarkdownContent ?
-                        <MarkdownPreview source={content}/>
-                        :
-                        content
+                            <MarkdownPreview source={content} />
+                            :
+                            content
                     }
                 </Card>
                 <div className='dialog-timestamp'>
-                    <Tooltip 
-                        title={dayjs(date).format('Do MMM YYYY, HH:mm:ss')} 
+                    <Tooltip
+                        title={dayjs(date).format('Do MMM YYYY, HH:mm:ss')}
                         placement='bottomRight'
                         arrow={false}
                     >
-                        <Typography.Text type='secondary'> 
-                        {
-                            dayjs(date).diff(dayjs(), 'days') === 0 ?
-                                dayjs(date).format('HH:mm')
-                                :
-                                dayjs(date).format('DD-MM-YY, HH:mm')
-                        }
+                        <Typography.Text type='secondary'>
+                            {
+                                dayjs(date).diff(dayjs(), 'days') === 0 ?
+                                    dayjs(date).format('HH:mm')
+                                    :
+                                    dayjs(date).format('DD-MM-YY, HH:mm')
+                            }
                         </Typography.Text>
                     </Tooltip>
                 </div>
