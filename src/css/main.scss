@@ -47,10 +47,10 @@
     }
 
     .prompt-container {
-        padding: 14px 8px;
+        padding: 28px 16px;
         backdrop-filter: blur(1.5px);
         margin-right: 8px;
-        padding-right: 6px;
+        padding-right: 12px;
 
         .prompt-editor {
             resize: none;
@@ -69,13 +69,13 @@
         }
 
         .editor-plugins {
-            position: relative;
+            position: absolute;
             float: right;
-            top: 85px;
+            top: 26px;
             z-index: 1;
-            right: 72px;
+            right: 75px;
             height: 70px;
-            padding: 4px 0;
+            padding: 8px 4px;
 
             .ant-btn:not(:hover){
                 color: rgba(255, 255, 255, 30%);

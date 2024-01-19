@@ -80,7 +80,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
                 }}
             />
 
-            <Space.Compact block className='prompt-container'>
+            <Space.Compact block>
                 <Input.TextArea
                     key={key}
                     ref={inputRef}
