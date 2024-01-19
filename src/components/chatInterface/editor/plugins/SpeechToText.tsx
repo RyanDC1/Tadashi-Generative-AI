@@ -11,6 +11,21 @@ type Props = {
     onStop?: () => void
 }
 
+interface NavigatorUserAgent {
+    brands: Browser[];
+    mobile: boolean;
+    platform: string;
+}
+interface Browser {
+    brand: string;
+    version: string;
+}
+
+/** @ts-expect-error - userAgentData limited support  @see https://developer.mozilla.org/en-US/docs/Web/API/Navigator/userAgentData#browser_compatibility*/
+const userAgentData: NavigatorUserAgent | undefined = navigator?.userAgentData
+const allowedBrowsers = ['Google Chrome']
+const allowSpeechRecognition = !userAgentData?.mobile && userAgentData?.brands?.find?.(s => allowedBrowsers.includes(s?.brand))
+
 const { startListening, abortListening } = SpeechRecognition
 
 export default function SpeechToText(props: Props) {
@@ -48,7 +63,7 @@ export default function SpeechToText(props: Props) {
         }
     }, [finalTranscript])
 
-    if(!browserSupportsSpeechRecognition)
+    if(!browserSupportsSpeechRecognition || !allowSpeechRecognition)
     {
         return null
     }

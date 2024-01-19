@@ -1,5 +1,6 @@
 import React from 'react'
 import SpeechToText from './SpeechToText'
+import ErrorBoundary from '../../../errorBoundary/ErrorBoundary'
 
 type Props = {
     disabled?: boolean,
@@ -12,10 +13,12 @@ export default function EditorPlugins(props: Props) {
 
     return (
         <div className='editor-plugins'>
-            <SpeechToText 
-                disabled={disabled}
-                {...speech}
-            />
+            <ErrorBoundary>
+                <SpeechToText 
+                    disabled={disabled}
+                    {...speech}
+                />
+            </ErrorBoundary>
         </div>
     )
 }
