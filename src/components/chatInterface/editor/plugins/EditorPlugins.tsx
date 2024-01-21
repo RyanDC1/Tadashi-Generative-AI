@@ -1,24 +1,42 @@
 import React from 'react'
+import { Divider, Space } from 'antd'
 import SpeechToText from './SpeechToText'
+import ImageUpload from './ImageUpload'
 import ErrorBoundary from '../../../errorBoundary/ErrorBoundary'
 
 type Props = {
     disabled?: boolean,
-    speech?: React.ComponentProps<typeof SpeechToText>
+    speech?: React.ComponentProps<typeof SpeechToText>,
+    imageUpload?: React.ComponentProps<typeof ImageUpload>
 }
 
 export default function EditorPlugins(props: Props) {
 
-    const { disabled = false, speech } = props
+    const { 
+        disabled = false, 
+        speech: speechPluginProps, 
+        imageUpload: imageUploadPluginProps 
+    } = props
 
     return (
-        <div className='editor-plugins'>
+        <Space
+            className='editor-plugins'
+            direction='vertical'
+            split={<Divider />}
+            size={1}
+        >
             <ErrorBoundary>
-                <SpeechToText 
+                <ImageUpload
                     disabled={disabled}
-                    {...speech}
+                    {...imageUploadPluginProps}
                 />
             </ErrorBoundary>
-        </div>
+            <ErrorBoundary>
+                <SpeechToText
+                    disabled={disabled}
+                    {...speechPluginProps}
+                />
+            </ErrorBoundary>
+        </Space>
     )
 }

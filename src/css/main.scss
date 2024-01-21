@@ -75,10 +75,37 @@
             z-index: 1;
             right: 75px;
             height: 70px;
-            padding: 8px 4px;
+            padding: 7px 4px;
 
-            .ant-btn:not(:hover){
-                color: rgba(255, 255, 255, 30%);
+            .ant-space-item-split {
+                .ant-divider {
+                    margin: 0px;
+                }
+            }
+        }
+
+        .image-prompt-list-container {
+            position: absolute;
+            bottom: 115px;
+            width: 40%;
+
+            .image-preview-container {
+                .ant-card-meta {
+                    .ant-card-meta-avatar {
+                        .ant-image {
+                            width: 100px;
+                            height: 65px;
+                            img {
+                                height: inherit;
+                                object-fit: contain;
+                            }
+                        }
+                    }
+
+                    .image-preview-title {
+                        white-space: break-spaces;
+                    }
+                }
             }
         }
     }
@@ -102,6 +129,38 @@
 
             .ant-card-body {
                 padding: 14px;
+            }
+
+            .image-prompt-carousel {
+                max-width: 450px;
+                margin: 0 auto;
+
+                .slick-arrow {
+                    color: #fff;
+                    background: #252525;
+                    border-radius: 14px;
+                    z-index: 1;
+                    width: 25px;
+                    height: 25px;
+                    
+                    &.slick-prev {
+                        inset-inline-start: 15px;
+                    }
+                    
+                    &.slick-next {
+                        inset-inline-end: 15px;
+                    }
+                }
+
+                .slick-slide {
+                    text-align: center;
+                    backdrop-filter: contrast(0.7);
+                }
+
+                .ant-image-img {
+                    height: 250px;
+                    object-fit: contain;
+                }
             }
         }
 
@@ -159,9 +218,10 @@
         }
 
         .chat-mode-balanced {
-            background: linear-gradient(90deg, rgba(0, 169, 255, 0.8) 0%,
-                    rgba(10, 194, 76, 0.8) 50%,
-                    rgba(180, 37, 234, 0.8) 100%)
+            background: linear-gradient(90deg,
+                    rgb(0 169 255 / 69%) 0%,
+                    rgb(0 169 255) 50%,
+                    rgb(180 37 234 / 85%) 100%);
         }
 
         .chat-mode-precise {

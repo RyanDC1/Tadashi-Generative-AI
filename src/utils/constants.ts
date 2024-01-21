@@ -15,7 +15,8 @@ const API_V1 = '/api/v1'
 
 export const ApiRoutes = {
     chat: {
-        generateResponse: `${chatApiBaseUrl}${API_V1}/prompt`
+        generateResponse: `${chatApiBaseUrl}${API_V1}/prompt`,
+        generateImageResponse: `${chatApiBaseUrl}${API_V1}/prompt-image`
     }
 }
 

@@ -39,6 +39,7 @@ type ChatCandidate = {
 
 export type ChatRequest = {
     prompt: string,
+    images?: string[]
     temperature?: number,
     history?: ChatContent[]
 }
@@ -50,6 +51,7 @@ export type ChatResponse = {
 export type DialogType = {
     id: number,
     content: string,
+    images?: string[],
     author: ChatActorType,
     date: Date
 }

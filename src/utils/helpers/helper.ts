@@ -80,3 +80,11 @@ export function encryptJSON (params: Object) {
     });
     return crypt.encrypt(import.meta.env.VITE_CLIENT_SECRET, JSON.stringify(params));
 }
+
+export const getBase64String = async (image: File) => new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.addEventListener('load', () => {
+        resolve(reader.result as string)
+    });
+    reader.readAsDataURL(image);
+})

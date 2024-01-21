@@ -140,6 +140,12 @@ body {
             vertical-align: text-top;
         }
     }
+
+    .image-prompt-list-container {
+        .ant-card-meta {
+            flex-direction: column;
+        }
+    }
 }
 
 @media (max-width: 300px) {

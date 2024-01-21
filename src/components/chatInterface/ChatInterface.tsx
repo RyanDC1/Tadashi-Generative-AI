@@ -9,6 +9,7 @@ import { defaultAPIFailedDialog, defaultResponseFallback } from '../../utils'
 import { StoreReducerType } from '../../store'
 import PromptSamples from './PromptSamples'
 import Fade from 'react-reveal/Fade';
+import { isEmpty } from 'lodash'
 
 type Props = {}
 
@@ -64,7 +65,7 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
     </div>
   )
 
-  function promptAssistant(prompt: string) {
+  function promptAssistant(prompt: string, images: string[] = []) {
     setDialog((dialog) => (
       [
         ...dialog,
@@ -72,7 +73,8 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
           id: dialog.length + 1,
           author: ChatActorType.USER,
           content: prompt,
-          date: new Date()
+          date: new Date(),
+          images: images
         }
       ]
     ))
@@ -89,7 +91,9 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
     const { configReducer: config } = store.getState()
 
     setIsFetching(true)
-    ChatService.getPromptResponse({ prompt, history, temperature: config.chatMode })
+
+    const promise = isEmpty(images) ? ChatService.getPromptResponse : ChatService.getImagePromptResponse
+    promise({ prompt, images, history, temperature: config.chatMode })
       .then((response) => {
 
         const generatedResponse = response?.candidates?.[0]?.content?.parts?.[0]?.text ?? defaultResponseFallback

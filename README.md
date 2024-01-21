@@ -126,6 +126,7 @@ which does not make much sense, and the discriminator would classify it as fake,
         - [Concepts](https://ai.google.dev/docs/concepts)
         - [LLMS](https://www.youtube.com/watch?v=zizonToFXDs)
         - [Generative AI](https://www.youtube.com/watch?v=G2fqAlgmoPo)
+        - [Multimodal Concepts](https://ai.google.dev/docs/multimodal_concepts)
         - [How does Generative AI work](https://www.simform.com/blog/how-does-generative-ai-work/)
         - [GAN Anatomy](https://developers.google.com/machine-learning/gan/gan_structure)
         - [Detecting Deceptive Reviews using Generative Adversarial Networks](https://arxiv.org/pdf/1805.10364.pdf)

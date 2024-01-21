@@ -1,7 +1,9 @@
-import { Card, Tooltip, Typography } from 'antd'
+import { Button, Card, Carousel, Image, Tooltip, Typography } from 'antd'
 import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import MarkdownPreview from '@uiw/react-markdown-preview'
+import { LeftOutlined, RightOutlined } from '@ant-design/icons'
+import { isEmpty } from 'lodash'
 
 dayjs.extend(advancedFormat)
 
@@ -9,17 +11,45 @@ type Props = {
     content: string,
     date: Date,
     className?: string,
-    allowMarkdownContent?: boolean
+    allowMarkdownContent?: boolean,
+    images?: string[]
 }
 
 export default function DialogBubble(props: Props) {
 
-    const { content, date, className = '', allowMarkdownContent = false } = props
+    const { content, date, className = '', allowMarkdownContent = false, images = [] } = props
 
     return (
         <div className={'dialog-bubble'.concat(" ", className).trim()}>
             <div className='dialog-content-container'>
                 <Card className='dialog-content'>
+                    {
+                        !isEmpty(images) && 
+                        <Carousel
+                            className='image-prompt-carousel'
+                            arrows
+                            adaptiveHeight={false}
+                            nextArrow={
+                                <Button
+                                    icon={<RightOutlined/>}
+                                />
+                            }
+                            prevArrow={
+                                <Button
+                                    icon={<LeftOutlined/>}
+                                />
+                            }
+                        >
+                            {
+                                images.map((image, index) => (
+                                    <Image
+                                        src={image}
+                                        key={index}
+                                    />
+                                ))
+                            }
+                        </Carousel>
+                    }
                     {
                         allowMarkdownContent ?
                             <MarkdownPreview source={content} />

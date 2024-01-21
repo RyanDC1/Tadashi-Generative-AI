@@ -5,9 +5,11 @@ import { PromptHelpers, generateDynamicPlaceholder } from '../../../utils'
 import { SendOutlined } from '@ant-design/icons'
 import { TextAreaRef } from 'antd/es/input/TextArea'
 import EditorPlugins from './plugins'
+import ImagePromptList from './ImagePromptList'
+import { ImageUploadList } from './plugins/ImageUpload'
 
 type Props = {
-    onSend: (value: string) => void,
+    onSend: (value: string, imageList: string[]) => void,
     disabled?: boolean
 }
 
@@ -29,6 +31,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
     const [controlledValue, setControlledValue] = useState<string | undefined>(undefined)
     const [interimValue, setInterimValue] = useState<string | undefined>(undefined)
     const [inputMode, setInputMode] = useState<PointerEvent['pointerType']>(InputMode.Mouse)
+    const [imageList, setImageList] = useState<ImageUploadList[]>([])
     const [key, setKey] = useState(0)
 
     const inputRef = useRef<TextAreaRef>(null!)
@@ -65,8 +68,7 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
                     onStart: () => inputRef.current.focus(),
                     onStop: () => inputRef.current.focus(),
                     onInterimResult: (result) => {
-                        if(!isEmpty(result.trim()))
-                        {
+                        if (!isEmpty(result.trim())) {
                             setInterimValue(((controlledValue || '') + ' ' + result).trim())
                         } else {
                             setInterimValue(undefined)
@@ -77,6 +79,26 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
                         inputRef.current.focus()
                         setEnableSend(true)
                     }
+                }}
+                imageUpload={{
+                    onChange: (imageList) => {
+                        setImageList(imageList)
+                        inputRef.current.focus()
+                    },
+                    value: imageList
+                }}
+            />
+
+            <ImagePromptList
+                data={imageList.map(image => (
+                    {
+                        id: image.file.uid,
+                        src: image.url,
+                        title: image.file.name
+                    }
+                ))}
+                onDelete={(id) => {
+                    setImageList(imageList.filter(s => s.file.uid !== id))
                 }}
             />
 
@@ -133,9 +155,10 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
 
     function sendPrompt() {
         if (enableSend && !disabled) {
-            onSend(inputRef.current.resizableTextArea.textArea.value.trim())
+            onSend(inputRef.current.resizableTextArea.textArea.value.trim(), imageList.map(s => s.url))
             setControlledValue(undefined)
             setEnableSend(false)
+            setImageList([])
             setKey(key + 1)
         }
     }

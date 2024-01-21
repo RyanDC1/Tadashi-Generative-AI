@@ -64,6 +64,7 @@ export default function DialogFlow(props: Props) {
                                     content={dialogContent.content}
                                     date={dialogContent.date}
                                     className='user-dialog-bubble'
+                                    images={dialogContent.images}
                                 />}
                         </Fade>
                     </span>
