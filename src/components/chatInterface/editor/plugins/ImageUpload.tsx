@@ -18,7 +18,7 @@ export interface ImageUploadList {
 
 const MAX_UPLOAD_COUNT = 2
 const MAX_FILE_SIZE_IN_MB = 4
-const ALLOWED_FILE_TYPES = ['image/jpeg', 'image/png']
+const ALLOWED_FILE_TYPES = ['image/jpg', 'image/jpeg', 'image/png']
 
 export default function ImageUpload(props: Props) {
 
