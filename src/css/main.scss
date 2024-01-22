@@ -74,13 +74,12 @@
             top: 26px;
             z-index: 1;
             right: 75px;
-            height: 70px;
-            padding: 7px 4px;
+            height: 75px;
+            padding: 6px 4px;
 
-            .ant-space-item-split {
-                .ant-divider {
-                    margin: 0px;
-                }
+            .plugin-element-split {
+                margin: 0px;
+                margin-bottom: 1px;
             }
         }
 

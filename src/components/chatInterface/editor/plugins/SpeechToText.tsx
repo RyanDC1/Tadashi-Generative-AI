@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { Button, Tooltip } from 'antd';
 import { AudioMutedOutlined, AudioOutlined } from '@ant-design/icons';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
@@ -32,6 +32,8 @@ export default function SpeechToText(props: Props) {
 
     const { disabled = false, onResult, onInterimResult, onStart, onStop } = props
 
+    const isSpeechEnabled = useRef(false)
+
     const {
         listening,
         browserSupportsSpeechRecognition,
@@ -45,6 +47,9 @@ export default function SpeechToText(props: Props) {
         if (listening && disabled === true) {
             abortListening()
             resetTranscript()
+        }
+        else if(isSpeechEnabled.current) {
+            startListening({ continuous: true, interimResults: false })
         }
     }, [disabled])
 
@@ -90,10 +95,12 @@ export default function SpeechToText(props: Props) {
                     {
                         abortListening()
                         onStop?.()
+                        isSpeechEnabled.current = false
                     }
                     else {
                         startListening({ continuous: true, interimResults: false })
                         onStart?.()
+                        isSpeechEnabled.current = true
                     }
                 }}
                 type='text'

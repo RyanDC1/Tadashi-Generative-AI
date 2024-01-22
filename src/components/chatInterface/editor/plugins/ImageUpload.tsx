@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import React, { useEffect, useMemo, useState } from "react"
 import { Button, Tooltip, Upload, message as AntMessage } from "antd"
 import { CameraOutlined } from "@ant-design/icons"
 import { RcFile } from "antd/es/upload"
@@ -6,7 +6,7 @@ import { isEqual } from "lodash"
 import { getBase64String } from "../../../../utils"
 
 type Props = {
-    disabled?: boolean,
+    disabled?: boolean
     value?: ImageUploadList[]
     onChange?: (imageList: ImageUploadList[]) => void
 }

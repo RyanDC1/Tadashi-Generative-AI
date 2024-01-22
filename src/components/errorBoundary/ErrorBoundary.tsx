@@ -30,7 +30,7 @@ export default class ErrorBoundary extends Component<Props, State> {
       !this.state.hasError ?
         this.props.children
         :
-        (this.props.fallback ?? <></>)
+        (this.props.fallback ?? null)
     )
   }
 }
