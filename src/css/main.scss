@@ -81,6 +81,14 @@
                 margin: 0px;
                 margin-bottom: 1px;
             }
+
+            .speech-btn {
+                .speech-active-indicator {
+                    position: absolute;
+                    top: 4px;
+                    right: 2px;
+                }
+            }
         }
 
         .image-prompt-list-container {

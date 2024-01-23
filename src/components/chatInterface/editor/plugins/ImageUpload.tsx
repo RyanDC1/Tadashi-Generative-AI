@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { Button, Tooltip, Upload, message as AntMessage } from "antd"
 import { CameraOutlined } from "@ant-design/icons"
 import { RcFile } from "antd/es/upload"
@@ -31,10 +31,9 @@ export default function ImageUpload(props: Props) {
     const isMaxLimit = useMemo(() => imageList.length === MAX_UPLOAD_COUNT, [imageList])
 
     useEffect(() => {
-      if(value !== undefined && !isEqual(value, imageList))
-      {
-        setImageList(value)
-      }
+        if (value !== undefined && !isEqual(value, imageList)) {
+            setImageList(value)
+        }
     }, [value])
 
 

@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { Button, Tooltip } from 'antd';
+import { Badge, Button, Tooltip } from 'antd';
 import { AudioMutedOutlined, AudioOutlined } from '@ant-design/icons';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
@@ -48,28 +48,25 @@ export default function SpeechToText(props: Props) {
             abortListening()
             resetTranscript()
         }
-        else if(isSpeechEnabled.current) {
+        else if (isSpeechEnabled.current) {
             startListening({ continuous: true, interimResults: false })
         }
     }, [disabled])
 
     useEffect(() => {
-        if(listening)
-        {
+        if (listening) {
             onInterimResult(interimTranscript)
         }
     }, [interimTranscript])
 
     useEffect(() => {
-        if(listening)
-        {
+        if (listening) {
             onResult(finalTranscript)
             resetTranscript()
         }
     }, [finalTranscript])
 
-    if(!browserSupportsSpeechRecognition || !allowSpeechRecognition)
-    {
+    if (!browserSupportsSpeechRecognition || !allowSpeechRecognition) {
         return null
     }
 
@@ -91,8 +88,7 @@ export default function SpeechToText(props: Props) {
             <Button
                 className='speech-btn'
                 onClick={() => {
-                    if(listening)
-                    {
+                    if (listening) {
                         abortListening()
                         onStop?.()
                         isSpeechEnabled.current = false
@@ -105,7 +101,19 @@ export default function SpeechToText(props: Props) {
                 }}
                 type='text'
                 disabled={disabled || !isMicrophoneAvailable}
-                icon={listening ? <AudioOutlined /> : <AudioMutedOutlined />}
+                icon={
+                    listening ?
+                        <>
+                            <Badge
+                                className='speech-active-indicator'
+                                status='processing'
+                                color='green'
+                            />
+                            <AudioOutlined />
+                        </>
+                        :
+                        <AudioMutedOutlined />
+                }
             />
         </Tooltip>
     )
