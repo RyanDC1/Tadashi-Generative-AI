@@ -40,6 +40,20 @@ It also has the capability to summarize content either in general or summarize t
         </p>
     </div>
     <br/><br/><br/>
+    <div style="flex: 1 1 25vw;">
+        <img align="center" src='./assets/screenshot_5.png'>
+        <p align="center" style="text-align: center; align-items: center; color: gray;">
+            Image prompts
+        </p>
+    </div>
+    <br/><br/><br/>
+    <div style="flex: 1 1 25vw;">
+        <img align="center" src='./assets/screenshot_6.png'>
+        <p align="center" style="text-align: center; align-items: center; color: gray;">
+            OCR functionality using image prompts
+        </p>
+    </div>
+    <br/><br/><br/>
     <div align="center" style="flex: 1 1 25vw;">
         <img align="center" src='./assets/screenshot_settings.png'>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
@@ -88,7 +102,7 @@ While LLM's are specifically designed to generate and process text based content
 Generative AI models are designed to use neural networks to learn from large datasets of text, images, code, audio, video and even music. By discerning patterns within this data, these models are capable of producing novel content that mirrors the characteristics of the learned data.
 
 ### Generative Adversarial Networks (GAN)
-A Generative Adversarial Network (GAN) is a type of deep learning model that is used to train generative AI. GANs are used to generate new data that mirrors the characteristics of the training data, and have been used to generate images, text, audio, and other types of data.
+One popular model used to train generative AI is GAN. A Generative Adversarial Network (GAN) is a type of deep learning model that is used to train generative AI. GANs are used to generate new data that mirrors the characteristics of the training data, and have been used to generate images, text, audio, and other types of data.
 
 GANs consist of two components or neural networks:
 1. Generator
@@ -130,7 +144,7 @@ which does not make much sense, and the discriminator would classify it as fake,
         - [How does Generative AI work](https://www.simform.com/blog/how-does-generative-ai-work/)
         - [GAN Anatomy](https://developers.google.com/machine-learning/gan/gan_structure)
         - [Detecting Deceptive Reviews using Generative Adversarial Networks](https://arxiv.org/pdf/1805.10364.pdf)
-    - Prompt Best Practices: https://ai.google.dev/docs/prompt_best_practices
+    - [Prompt Best Practices](https://ai.google.dev/docs/prompt_best_practices)
 
 - Tools and Resources
     - Redux Toolkit: https://redux-toolkit.js.org

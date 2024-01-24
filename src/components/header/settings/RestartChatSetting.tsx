@@ -1,4 +1,4 @@
-import { Button, message as AntMessage } from 'antd'
+import { Button, message, Modal } from 'antd'
 import { useChatContext } from '../../../contexts'
 
 type Props = {
@@ -8,22 +8,29 @@ type Props = {
 export default function RestartChatSetting({ onReset }: Props) {
 
     const { clearChatHistory } = useChatContext()
-    const [message, messageContext] = AntMessage.useMessage()
+
+    const [modal, modalContext] = Modal.useModal()
 
     return (
         <>
-            {messageContext}
+            {modalContext}
             <Button
                 danger
                 type='primary'
                 onClick={() => {
-                    clearChatHistory()
-                    .then(() => {
-                        message.success("Chat History Cleared")
-                        onReset()
-                    })
-                    .catch(() => {
-                        message.error("Please wait, Cannot delete chat history while response is generating")
+                    modal.confirm({
+                        title: 'Restart Chat?',
+                        content: 'All chat history will be erased',
+                        onOk: () => {
+                            clearChatHistory()
+                            .then(() => {
+                                message.success("Chat History Cleared")
+                                onReset()
+                            })
+                            .catch(() => {
+                                message.error("Please wait, Cannot delete chat history while response is generating")
+                            })
+                        }
                     })
                 }}
             >
