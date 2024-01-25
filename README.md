@@ -11,51 +11,65 @@ It also has the capability to summarize content either in general or summarize t
 (Please note: The site will take some time to load initially)
 
 ## Preview
-<div class='screenshots' style="display: flex; flex-flow: wrap; gap: 24px;">
+<div class='screenshots' style="display: flex; flex-flow: wrap; gap: 21px;">
     <div style="flex: 1 1 25vw;">
-        <img align="center" src='./assets/screenshot_1.png'>
+        <a href='./assets/screenshot_1.png' target='_blank'>
+            <img align="center" src='./assets/screenshot_1.png'>
+        </a>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Ability to summarize text and generate code
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img align="center" src='./assets/screenshot_2.png'>
+        <a href='./assets/screenshot_2.png' target='_blank'>
+            <img align="center" src='./assets/screenshot_2.png'>
+        </a>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Translation and understanding of foreign languages and text
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img align="center" src='./assets/screenshot_3.png'>
+        <a href='./assets/screenshot_3.png' target='_blank'>
+            <img align="center" src='./assets/screenshot_3.png'>
+        </a>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Content Generation
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img align="center" src='./assets/screenshot_4.png'>
+        <a href='./assets/screenshot_4.png' target='_blank'>
+            <img align="center" src='./assets/screenshot_4.png'>
+        </a>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Semantic extraction and task Execution
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img align="center" src='./assets/screenshot_5.png'>
+        <a href='./assets/screenshot_5.png' target='_blank'>
+            <img align="center" src='./assets/screenshot_5.png'>
+        </a>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Image prompts
         </p>
     </div>
     <br/><br/><br/>
     <div style="flex: 1 1 25vw;">
-        <img align="center" src='./assets/screenshot_6.png'>
+        <a href='./assets/screenshot_6.png' target='_blank'>
+            <img align="center" src='./assets/screenshot_6.png'>
+        </a>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             OCR functionality using image prompts
         </p>
     </div>
     <br/><br/><br/>
     <div align="center" style="flex: 1 1 25vw;">
-        <img align="center" src='./assets/screenshot_settings.png'>
+        <a href='./assets/screenshot_settings.png' target='_blank'>
+            <img align="center" src='./assets/screenshot_settings.png'>
+        </a>
         <p align="center" style="text-align: center; align-items: center; color: gray;">
             Chat modes, each mode will shift the probability of finding the right candidate response
         </p>

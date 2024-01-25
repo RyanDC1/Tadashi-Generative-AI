@@ -1,6 +1,8 @@
 
+import { useEffect } from "react"
 import { Button, Card, Flex, Image, Space, Typography } from "antd"
 import { DeleteOutlined } from "@ant-design/icons"
+import Slide from 'react-reveal/Slide';
 
 export type ImageList = {
     src: string,
@@ -18,38 +20,45 @@ export default function ImagePromptList(props: Props) {
     const { data, onDelete } = props
 
     return (
-        <Space 
+        <Space
             className="image-prompt-list-container"
+            id='image-prompt-list-container'
             direction='vertical'
             size={4}
         >
             {
                 data.map(image => (
-                    <Card
+                    <Slide
+                        left
+                        collapse
                         key={image.id}
-                        className="image-preview-container"
+                        duration={250}
                     >
-                        <Card.Meta
-                            avatar={
-                                <Image
-                                    src={image.src}
-                                />
-                            }
-                            title={
-                                <Flex justify='space-between'>
-                                    <Typography.Text className="image-preview-title">
-                                        {image.title}
-                                    </Typography.Text>
-                                    <Button
-                                        danger
-                                        type='link'
-                                        icon={<DeleteOutlined />}
-                                        onClick={() => onDelete(image.id)}
+                        <Card
+                            className="image-preview-container"
+                        >
+                            <Card.Meta
+                                avatar={
+                                    <Image
+                                        src={image.src}
                                     />
-                                </Flex>
-                            }
-                        />
-                    </Card>
+                                }
+                                title={
+                                    <Flex justify='space-between'>
+                                        <Typography.Text className="image-preview-title">
+                                            {image.title}
+                                        </Typography.Text>
+                                        <Button
+                                            danger
+                                            type='link'
+                                            icon={<DeleteOutlined />}
+                                            onClick={() => onDelete(image.id)}
+                                        />
+                                    </Flex>
+                                }
+                            />
+                        </Card>
+                    </Slide>
                 ))
             }
         </Space>
