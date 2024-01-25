@@ -71,11 +71,10 @@
         .editor-plugins {
             position: absolute;
             float: right;
-            top: 26px;
             z-index: 1;
-            right: 75px;
+            right: 63px;
             height: 75px;
-            padding: 6px 4px;
+            padding: 4px;
 
             .plugin-element-split {
                 margin: 0px;
@@ -92,9 +91,8 @@
         }
 
         .image-prompt-list-container {
-            position: absolute;
-            bottom: 112px;
             width: 40%;
+            margin-bottom: 6px;
 
             .image-preview-container {
                 .ant-card-meta {

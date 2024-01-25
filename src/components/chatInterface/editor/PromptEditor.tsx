@@ -1,5 +1,5 @@
 import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react'
-import { Button, Input, Space } from 'antd'
+import { Button, Col, Input, Row, Space } from 'antd'
 import { isEmpty } from 'lodash'
 import { PromptHelpers, generateDynamicPlaceholder } from '../../../utils'
 import { SendOutlined } from '@ant-design/icons'
@@ -61,96 +61,100 @@ const PromptEditor = forwardRef<PromptEditorRef, Props>((props, ref) => {
     }, [])
 
     return (
-        <>
-            <EditorPlugins
-                disabled={disabled}
-                speech={{
-                    onStart: () => inputRef.current.focus(),
-                    onStop: () => inputRef.current.focus(),
-                    onInterimResult: (result) => {
-                        if (!isEmpty(result.trim())) {
-                            setInterimValue(((controlledValue || '') + ' ' + result).trim())
-                        } else {
-                            setInterimValue(undefined)
+        <Row>
+            <Col span={24}>
+                <ImagePromptList
+                    data={imageList.map(image => (
+                        {
+                            id: image.file.uid,
+                            src: image.url,
+                            title: image.file.name
                         }
-                    },
-                    onResult: (result) => {
-                        setControlledValue(((controlledValue || '') + ' ' + result).trim())
-                        inputRef.current.focus()
-                        setEnableSend(true)
-                    }
-                }}
-                imageUpload={{
-                    onChange: (imageList) => {
-                        setImageList(imageList)
-                        inputRef.current.focus()
-                    },
-                    value: imageList
-                }}
-            />
+                    ))}
+                    onDelete={(id) => {
+                        setImageList(imageList.filter(s => s.file.uid !== id))
+                    }}
+                />
+            </Col>
 
-            <ImagePromptList
-                data={imageList.map(image => (
-                    {
-                        id: image.file.uid,
-                        src: image.url,
-                        title: image.file.name
-                    }
-                ))}
-                onDelete={(id) => {
-                    setImageList(imageList.filter(s => s.file.uid !== id))
-                }}
-            />
-
-            <Space.Compact block>
-                <Input.TextArea
-                    key={key}
-                    ref={inputRef}
-                    translate='no'
+            <Col span={24}>
+                <EditorPlugins
                     disabled={disabled}
-                    id='chat-prompt'
-                    autoFocus
-                    autoSize={{
-                        minRows: 3,
-                        maxRows: 5
-                    }}
-                    onClick={(event) => {
-                        const pointerEvent = event.nativeEvent as PointerEvent
-                        if (inputMode !== pointerEvent?.pointerType) {
-                            setInputMode(pointerEvent.pointerType)
+                    speech={{
+                        onStart: () => inputRef.current.focus(),
+                        onStop: () => inputRef.current.focus(),
+                        onInterimResult: (result) => {
+                            if (!isEmpty(result.trim())) {
+                                setInterimValue(((controlledValue || '') + ' ' + result).trim())
+                            } else {
+                                setInterimValue(undefined)
+                            }
+                        },
+                        onResult: (result) => {
+                            setControlledValue(((controlledValue || '') + ' ' + result).trim())
+                            inputRef.current.focus()
+                            setEnableSend(true)
                         }
                     }}
-                    className='prompt-editor'
-                    placeholder={key > 0 ? undefined : `Ask Tadashi `}
-                    onChange={(event) => {
-                        if (controlledValue !== undefined) {
-                            // set value only when in controlled state to avoid re-renders
-                            setControlledValue(event.target.value || undefined)
-                        }
-                        if (!isEmpty(event.target.value?.trim?.())) {
-                            enableSend === false && setEnableSend(true)
-                        }
-                        else {
-                            enableSend === true && setEnableSend(false)
-                        }
+                    imageUpload={{
+                        onChange: (imageList) => {
+                            setImageList(imageList)
+                            inputRef.current.focus()
+                        },
+                        value: imageList
                     }}
-                    onKeyDown={(event) => {
-                        if (event.key === 'Enter' && event.shiftKey === false) {
-                            //ignore if enterKey and shiftKey combination (new line)
-                            sendPrompt()
-                        }
-                    }}
-                    value={interimValue || controlledValue}
                 />
-                <Button
-                    className='send-btn'
-                    type='primary'
-                    icon={<SendOutlined />}
-                    disabled={disabled || !enableSend}
-                    onClick={sendPrompt}
-                />
-            </Space.Compact>
-        </>
+
+                <Space.Compact block>
+                    <Input.TextArea
+                        key={key}
+                        ref={inputRef}
+                        translate='no'
+                        disabled={disabled}
+                        id='chat-prompt'
+                        autoFocus
+                        autoSize={{
+                            minRows: 3,
+                            maxRows: 5
+                        }}
+                        onClick={(event) => {
+                            const pointerEvent = event.nativeEvent as PointerEvent
+                            if (inputMode !== pointerEvent?.pointerType) {
+                                setInputMode(pointerEvent.pointerType)
+                            }
+                        }}
+                        className='prompt-editor'
+                        placeholder={key > 0 ? undefined : `Ask Tadashi `}
+                        onChange={(event) => {
+                            if (controlledValue !== undefined) {
+                                // set value only when in controlled state to avoid re-renders
+                                setControlledValue(event.target.value || undefined)
+                            }
+                            if (!isEmpty(event.target.value?.trim?.())) {
+                                enableSend === false && setEnableSend(true)
+                            }
+                            else {
+                                enableSend === true && setEnableSend(false)
+                            }
+                        }}
+                        onKeyDown={(event) => {
+                            if (event.key === 'Enter' && event.shiftKey === false) {
+                                //ignore if enterKey and shiftKey combination (new line)
+                                sendPrompt()
+                            }
+                        }}
+                        value={interimValue || controlledValue}
+                    />
+                    <Button
+                        className='send-btn'
+                        type='primary'
+                        icon={<SendOutlined />}
+                        disabled={disabled || !enableSend}
+                        onClick={sendPrompt}
+                    />
+                </Space.Compact>
+            </Col>
+        </Row>
     )
 
     function sendPrompt() {

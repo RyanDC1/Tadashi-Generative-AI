@@ -1,9 +1,8 @@
-import { Button, Card, Carousel, Image, Tooltip, Typography } from 'antd'
+import { Card, Tooltip, Typography } from 'antd'
 import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'
 import MarkdownPreview from '@uiw/react-markdown-preview'
-import { LeftOutlined, RightOutlined } from '@ant-design/icons'
-import { isEmpty } from 'lodash'
+import ImagePreview from './ImagePreview'
 
 dayjs.extend(advancedFormat)
 
@@ -23,33 +22,9 @@ export default function DialogBubble(props: Props) {
         <div className={'dialog-bubble'.concat(" ", className).trim()}>
             <div className='dialog-content-container'>
                 <Card className='dialog-content'>
-                    {
-                        !isEmpty(images) && 
-                        <Carousel
-                            className='image-prompt-carousel'
-                            arrows
-                            adaptiveHeight={false}
-                            nextArrow={
-                                <Button
-                                    icon={<RightOutlined/>}
-                                />
-                            }
-                            prevArrow={
-                                <Button
-                                    icon={<LeftOutlined/>}
-                                />
-                            }
-                        >
-                            {
-                                images.map((image, index) => (
-                                    <Image
-                                        src={image}
-                                        key={index}
-                                    />
-                                ))
-                            }
-                        </Carousel>
-                    }
+                    <ImagePreview
+                        images={images}
+                    />
                     {
                         allowMarkdownContent ?
                             <MarkdownPreview source={content} />

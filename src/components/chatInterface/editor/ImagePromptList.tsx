@@ -1,5 +1,3 @@
-
-import { useEffect } from "react"
 import { Button, Card, Flex, Image, Space, Typography } from "antd"
 import { DeleteOutlined } from "@ant-design/icons"
 import Slide from 'react-reveal/Slide';
