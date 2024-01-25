@@ -21,6 +21,9 @@ export default function RestartChatSetting({ onReset }: Props) {
                     modal.confirm({
                         title: 'Restart Chat?',
                         content: 'All chat history will be erased',
+                        okButtonProps: {
+                            danger: true
+                        },
                         onOk: () => {
                             clearChatHistory()
                             .then(() => {
