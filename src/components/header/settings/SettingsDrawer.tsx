@@ -28,7 +28,6 @@ export default function SettingsDrawer(props: Props) {
                 </Space>
             }
             size='large'
-            destroyOnClose
             onClose={onClose}
         >
             <Settings 

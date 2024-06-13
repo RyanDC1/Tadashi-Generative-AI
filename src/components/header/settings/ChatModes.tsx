@@ -23,9 +23,11 @@ const ChatModeBadge = ({ children, hidden }: BadgeProps) => {
 export default function ChatModes() {
 
     const { chatMode, setChatModeState } = useConfig()
+    const [notify, notifyContext] = notification.useNotification()
 
     return (
         <div>
+            {notifyContext}
             <span>
                 <Space className="align-base">
                     <Typography.Title level={5}>
@@ -92,7 +94,7 @@ export default function ChatModes() {
     function getNotification(mode: ChatModeType) {
         const _notifications = {
             [ChatModeType.Creative]: () => {
-                notification.success({
+                notify.success({
                     placement: 'bottomRight',
                     key: 'CHAT_MODE_UPDATED_NOTIFICATION',
                     message: 'Mode updated to Creative',
@@ -100,7 +102,7 @@ export default function ChatModes() {
                 })
             },
             [ChatModeType.Balanced]: () => {
-                notification.success({
+                notify.success({
                     placement: 'bottomRight',
                     key: 'CHAT_MODE_UPDATED_NOTIFICATION',
                     message: 'Mode updated to Balanced',
@@ -108,11 +110,11 @@ export default function ChatModes() {
                 })
             },
             [ChatModeType.Precise]: () => {
-                notification.success({
+                notify.success({
                     placement: 'bottomRight',
                     key: 'CHAT_MODE_UPDATED_NOTIFICATION',
                     message: 'Mode updated to Precise',
-                    description: 'Tadashi will generate answers that are more determinstic and accurate.'
+                    description: 'Tadashi will generate answers that are more deterministic and accurate.'
                 })
             }
         }[mode]()

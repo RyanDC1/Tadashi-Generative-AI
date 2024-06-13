@@ -90,13 +90,23 @@ export default function SpeechToText(props: Props) {
                 onClick={() => {
                     if (listening) {
                         abortListening()
-                        onStop?.()
-                        isSpeechEnabled.current = false
+                        .then(() => {
+                            onStop?.()
+                            isSpeechEnabled.current = false
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
                     }
                     else {
                         startListening({ continuous: true, interimResults: false })
-                        onStart?.()
-                        isSpeechEnabled.current = true
+                        .then(() => {
+                            onStart?.()
+                            isSpeechEnabled.current = true
+                        })
+                        .catch((error) => {
+                            console.error(error)
+                        })
                     }
                 }}
                 type='text'

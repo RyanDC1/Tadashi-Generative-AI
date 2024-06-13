@@ -10,10 +10,12 @@ export default function RestartChatSetting({ onReset }: Props) {
     const { clearChatHistory } = useChatContext()
 
     const [modal, modalContext] = Modal.useModal()
+    const [toast, toastContext] = message.useMessage()
 
     return (
         <>
             {modalContext}
+            {toastContext}
             <Button
                 danger
                 type='primary'
@@ -27,11 +29,11 @@ export default function RestartChatSetting({ onReset }: Props) {
                         onOk: () => {
                             clearChatHistory()
                             .then(() => {
-                                message.success("Chat History Cleared")
+                                toast.success("Chat History Cleared")
                                 onReset()
                             })
                             .catch(() => {
-                                message.error("Please wait, Cannot delete chat history while response is generating")
+                                toast.error("Please wait, Cannot delete chat history while response is generating")
                             })
                         }
                     })
