@@ -14,7 +14,7 @@ type SafetySettings = {
     'HARM_CATEGORY_HARASSMENT' |
     'HARM_CATEGORY_HATE_SPEECH' |
     'HARM_CATEGORY_SEXUALLY_EXPLICIT' |
-    'HARM_CATEGORY_DANGEROUS_CONTENT' ,
+    'HARM_CATEGORY_DANGEROUS_CONTENT',
     threshold?: 'BLOCK_NONE' |
     'BLOCK_ONLY_HIGH' |
     'BLOCK_MEDIUM_AND_ABOVE' |
@@ -23,7 +23,17 @@ type SafetySettings = {
 }
 
 type ChatContentParts = {
-    text: string
+    text: string,
+    inline_data?: {
+        mime_type: string;
+        data: string;
+    }
+} | {
+    text?: string,
+    inline_data: {
+        mime_type: string;
+        data: string;
+    }
 }
 
 type ChatContent = {
@@ -41,7 +51,7 @@ export type ChatRequest = {
     prompt: string,
     images?: string[]
     temperature?: number,
-    history?: ChatContent[]
+    history?: ChatContent[],
 }
 
 export type ChatResponse = {
@@ -58,6 +68,6 @@ export type DialogType = {
 
 export enum ChatModes {
     Creative = 0.0,
-    Balanced = 0.5,
-    Precise = 1.0
+    Balanced = 1.0,
+    Precise = 1.8
 }

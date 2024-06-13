@@ -15,18 +15,5 @@ export const ChatService: IChatService = {
         )
 
         return response.data
-    },
-    getImagePromptResponse: async (body) => {
-        const response = await axios.post(
-            ApiRoutes.chat.generateImageResponse,
-            import.meta.env.DEV ? body : encryptJSON(body),
-            {
-                headers: {
-                    "Content-Type": 'application/json'
-                }
-            }
-        )
-
-        return response.data
     }
 }

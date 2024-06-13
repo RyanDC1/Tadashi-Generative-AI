@@ -1,5 +1,4 @@
-const GENERATIVE_LANGUAGE_CHAT_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro:generateContent?key=${process.env.GEN_AI_API_KEY}`
-const GENERATIVE_LANGUAGE_VISION_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-pro-vision:generateContent?key=${process.env.GEN_AI_API_KEY}`
+const GENERATIVE_LANGUAGE_CHAT_URL = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent?key=${process.env.GEN_AI_API_KEY}`
 
 const PRE_PROMPT_CONTEXT = [
     {
@@ -46,6 +45,5 @@ const PRE_PROMPT_CONTEXT = [
 
 module.exports = {
     PRE_PROMPT_CONTEXT,
-    GENERATIVE_LANGUAGE_CHAT_URL,
-    GENERATIVE_LANGUAGE_VISION_URL
+    GENERATIVE_LANGUAGE_CHAT_URL
 }

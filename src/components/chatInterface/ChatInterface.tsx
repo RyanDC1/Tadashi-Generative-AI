@@ -65,6 +65,34 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
     </div>
   )
 
+  function getHistory() {
+
+    const history: ChatRequest['history'] = dialog.map(dialogContent => {
+
+      const imageData = dialogContent.images?.map?.(image => {
+        const mimeType = image.slice(0, image.indexOf(';')).replace('data:', '')
+        return {
+          inline_data: {
+            mime_type: mimeType,
+            data: image.slice(image.indexOf(',') + 1)
+          }
+        }
+      }).filter(image => isEmpty(image))
+
+      return {
+        parts: [
+          ...(imageData || []),
+          {
+            text: dialogContent.content
+          }
+        ].filter(content => !isEmpty(content)),
+        role: dialogContent.author
+      }
+    })
+
+    return history
+  }
+
   function promptAssistant(prompt: string, images: string[] = []) {
     setDialog((dialog) => (
       [
@@ -79,24 +107,15 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
       ]
     ))
 
-    const history: ChatRequest['history'] = dialog.map(s => (
-      {
-        parts: [{
-          text: s.content
-        }],
-        role: s.author
-      }
-    ))
-
     const { configReducer: config } = store.getState()
+    const history = getHistory()
 
     setIsFetching(true)
 
-    const promise = isEmpty(images) ? ChatService.getPromptResponse : ChatService.getImagePromptResponse
-    promise({ prompt, images, history, temperature: config.chatMode })
+    ChatService.getPromptResponse({ prompt, images, history, temperature: config.chatMode })
       .then((response) => {
 
-        const generatedResponse = response?.candidates?.[0]?.content?.parts?.[0]?.text ?? defaultResponseFallback
+        const generatedResponse = response || defaultResponseFallback
         setDialog((dialog) => (
           [
             ...dialog,
