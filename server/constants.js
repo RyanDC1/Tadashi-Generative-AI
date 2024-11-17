@@ -37,7 +37,7 @@ const PRE_PROMPT_CONTEXT = [
         role: "model",
         parts: [
             {
-                text: ""
+                text: "_"
             }
         ]
     }
