@@ -13,7 +13,7 @@ const useTheme = () => {
     const dispatch = useDispatch()
 
     useEffect(() => {
-        // set global attribute, commanly used by third party libraries
+        // set global attribute, commonly used by third party libraries
         document.documentElement.setAttribute('data-color-mode', theme === Theme.DARK ? 'dark' : 'light')
         addToStore(BrowserStoreKeys.THEME, theme)
     }, [theme])
