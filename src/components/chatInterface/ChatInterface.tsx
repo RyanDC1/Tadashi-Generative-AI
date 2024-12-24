@@ -65,9 +65,9 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
     </div>
   )
 
-  function getHistory() {
+  function getHistory(limit?: number) {
 
-    const history: ChatRequest['history'] = dialog.map(dialogContent => {
+    const history: ChatRequest['history'] = dialog.slice(0, limit).map(dialogContent => {
 
       const imageData = dialogContent.images?.map?.(image => {
         const mimeType = image.slice(0, image.indexOf(';')).replace('data:', '')
@@ -108,11 +108,16 @@ const ChatInterface = forwardRef<ChatInterfaceRef, Props>((_props, ref) => {
     ))
 
     const { configReducer: config } = store.getState()
-    const history = getHistory()
+    const history = getHistory(40)
 
     setIsFetching(true)
 
-    ChatService.getPromptResponse({ prompt, images, history, temperature: config.chatMode })
+    ChatService.getPromptResponse({ 
+      prompt, 
+      images, 
+      history, 
+      temperature: config.chatMode 
+    })
       .then((response) => {
 
         const generatedResponse = response || defaultResponseFallback
