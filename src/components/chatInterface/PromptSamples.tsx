@@ -134,24 +134,25 @@ const promptSamples: PromptSample[] = [
         icon: <EntertainmentIcon size={32} />,
         prompts: [
             `Generate a new text based adventure into a magical land where I am the main character, a warrior tasked to retrieve the mystical dragon scroll, create a short start to the story, assign the main character a few stats and progress the story based on the options the user selects, follow the format:
-                <insert short story progression here> what will you do?
-                
-                1. Option 1 (risks)
-                2. Option 2 (warning)
-                3. Option 3
-                4. Option 4
-                ...
-                
-                <insert number of turns remaining> for example: 0/3 turns
-                - there will be a default of 3 turns, each turn can result in a win or a loss
-                - if there is a win on a turn the progress the story further
-                - if there is a loss, trigger a defeat and end the story example: "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the beginning.
-                - there can be a minimum of 2 options and a maximum of 5 options.
-                - depending on the users option, the story will progress, each option will have a weight-age that can turn the tide in favor or against the user. end the story after 4 turns, the user can either win or lose depending on the options chosen.
-                - One of the options should result in an immediate loss, where the user is defeated and the story ends here, prompt the user if they wish to try again. if they choose yes, the story starts from the beginning.
-                - The user can lose the game ending the story, for example if the user chooses the wrong option that does not correspond to the stats given at the start, trigger a loss saying "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the beginning.
-                - The options are very difficult and will make it more and more difficult for the user to win.
-                - The options will not hint what will happen should the user select that option, the aftermath will only be revealed after the user has made their choice.`,
+            <insert short story progression here> what will you do?
+            
+            1. Option 1 (risks)
+            2. Option 2 (warning)
+            3. Option 3
+            4. Option 4
+            ...
+            
+            <insert number of turns remaining> for example: 0/12 turns
+            - Before starting the turn-based game, 
+            - there will be a default of 12 turns, each turn can result in a win or a loss
+            - if there is a win on a turn the progress the story further
+            - if there is a loss, trigger a defeat and end the story example: "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the beginning.
+            - there can be a minimum of 2 options and a maximum of 5 options.
+            - depending on the users option, the story will progress, each option will have a weight-age that can turn the tide in favor or against the user. end the story after 4 turns, the user can either win or lose depending on the options chosen.
+            - One of the options should result in an immediate loss, where the user is defeated and the story ends here, prompt the user if they wish to try again. if they choose yes, the story starts from the beginning.
+            - The user can lose the game ending the story, for example if the user chooses the wrong option that does not correspond to the stats given at the start, trigger a loss saying "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the beginning.
+            - The options are very difficult and will make it more and more difficult for the user to win.
+            - The options will not hint what will happen should the user select that option, the aftermath will only be revealed after the user has made their choice.`,
             `Tell me a random funny and vivid joke in a story format`
         ]
     },
