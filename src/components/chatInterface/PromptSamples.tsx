@@ -148,7 +148,7 @@ const promptSamples: PromptSample[] = [
             - if there is a win on a turn the progress the story further
             - if there is a loss, trigger a defeat and end the story example: "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the beginning.
             - there can be a minimum of 2 options and a maximum of 5 options.
-            - depending on the users option, the story will progress, each option will have a weight-age that can turn the tide in favor or against the user. end the story after 4 turns, the user can either win or lose depending on the options chosen.
+            - depending on the users option, the story will progress, each option will have a weight-age that can turn the tide in favor or against the user. end the story after 12 turns, the user can either win or lose depending on the options chosen.
             - One of the options should result in an immediate loss, where the user is defeated and the story ends here, prompt the user if they wish to try again. if they choose yes, the story starts from the beginning.
             - The user can lose the game ending the story, for example if the user chooses the wrong option that does not correspond to the stats given at the start, trigger a loss saying "you lost / were defeated, would you like to try again?" if the user accepts, restart the same story from the beginning.
             - The options are very difficult and will make it more and more difficult for the user to win.
