@@ -52,6 +52,7 @@ chatController.post('/prompt', async (req, res) => {
     })
 
     const data = await response.json()
+    console.log(data)
     const promptResponse = data?.candidates?.[0]?.content?.parts?.[0]?.text
     res.send(promptResponse)
 })
